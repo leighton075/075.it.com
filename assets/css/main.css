@@ -3425,7 +3425,7 @@ body.is-preload #header.alt .logo {
 /* Main */
 
 #main {
-  background-color: #ffffff;
+  background-color: #1b1b1b;
   color: #636363;
   border-radius: 0.25em;
 }
@@ -3451,7 +3451,7 @@ body.is-preload #header.alt .logo {
 #main h4,
 #main h5,
 #main h6 {
-  color: #636363;
+  color: #a9a297;
 }
 
 #main blockquote {
