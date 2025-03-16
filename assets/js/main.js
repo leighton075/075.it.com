@@ -94,6 +94,15 @@
           },
         });
       });
+
+    // Move nav to the left side on scroll
+    $window.on("scroll", function () {
+      if ($window.scrollTop() > $nav.height()) {
+        $nav.addClass("fixed-left");
+      } else {
+        $nav.removeClass("fixed-left");
+      }
+    });
   }
 
   // Scrolly.
@@ -101,3 +110,47 @@
     speed: 1000,
   });
 })(jQuery);
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('http://<your-raspberry-pi-ip>:3000/api/benchmarks') // Update with your Raspberry Pi's IP
+    .then(response => response.json())
+    .then(data => {
+      const personList = document.getElementById('person-list');
+      const benchmarkTableBody = document.getElementById('benchmark-table-body');
+
+      data.people.forEach(person => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<img src="${person.image}" alt="${person.name}" /><span>${person.name}</span>`;
+        listItem.addEventListener('click', () => {
+          benchmarkTableBody.innerHTML = '';
+          person.benchmarks.forEach(benchmark => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${benchmark.year}</td>
+              <td>${benchmark.quarter}</td>
+              <td>${benchmark.squat}</td>
+              <td>${benchmark.benchPress}</td>
+              <td>${benchmark.deadlift}</td>
+            `;
+            benchmarkTableBody.appendChild(row);
+          });
+        });
+        personList.appendChild(listItem);
+      });
+    })
+    .catch(error => console.error('Error fetching benchmark data:', error));
+});
