@@ -126,9 +126,10 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('http://<your-raspberry-pi-ip>:3000/api/benchmarks') // Update with your Raspberry Pi's IP
+  fetch('/api/benchmarks') // Use relative URL to fetch data from the server
     .then(response => response.json())
     .then(data => {
+      console.log('Data received from server:', data); // Log the data
       const personList = document.getElementById('person-list');
       const benchmarkTableBody = document.getElementById('benchmark-table-body');
 

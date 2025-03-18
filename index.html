@@ -60,34 +60,36 @@
 		<!-- Scripts -->
 		<script src="assets/js/main.js"></script>
 		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				fetch('http://<your-raspberry-pi-ip>:3000/api/benchmarks') // Update with your Raspberry Pi's IP
-					.then(response => response.json())
-					.then(data => {
-						const personList = document.getElementById('person-list');
-						const benchmarkTableBody = document.getElementById('benchmark-table-body');
+			document.addEventListener('DOMContentLoaded', async () => {
+				try {
+					const response = await fetch('/api/benchmarks');
+					const data = await response.json();
 
-						data.people.forEach(person => {
-							const listItem = document.createElement('li');
-							listItem.innerHTML = `<img src="${person.image}" alt="${person.name}" /><span>${person.name}</span>`;
-							listItem.addEventListener('click', () => {
-								benchmarkTableBody.innerHTML = '';
-								person.benchmarks.forEach(benchmark => {
-									const row = document.createElement('tr');
-									row.innerHTML = `
-										<td>${benchmark.year}</td>
-										<td>${benchmark.quarter}</td>
-										<td>${benchmark.squat}</td>
-										<td>${benchmark.benchPress}</td>
-										<td>${benchmark.deadlift}</td>
-									`;
-									benchmarkTableBody.appendChild(row);
-								});
-							});
-							personList.appendChild(listItem);
+					const personList = document.getElementById('person-list');
+					const benchmarkTableBody = document.getElementById('benchmark-table-body');
+
+					data.people.forEach(person => {
+						// Populate the sidebar list
+						const li = document.createElement('li');
+						li.textContent = person.name;
+						personList.appendChild(li);
+
+						// Populate the benchmark table
+						person.benchmarks.forEach(benchmark => {
+							const tr = document.createElement('tr');
+							tr.innerHTML = `
+								<td>${benchmark.year}</td>
+								<td>${benchmark.quarter}</td>
+								<td>${benchmark.squat}</td>
+								<td>${benchmark.benchPress}</td>
+								<td>${benchmark.deadlift}</td>
+							`;
+							benchmarkTableBody.appendChild(tr);
 						});
-					})
-					.catch(error => console.error('Error fetching benchmark data:', error));
+					});
+				} catch (error) {
+					console.error('Error fetching benchmarks:', error);
+				}
 			});
 		</script>
 	</body>
