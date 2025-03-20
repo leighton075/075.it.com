@@ -210,6 +210,85 @@ body:not(.light-mode) a {
     color: black;
 }
 
+/* Menu Icon */
+#menu-icon {
+    position: relative; /* Ensure the dropdown menu is positioned relative to the menu-icon */
+    display: inline-block;
+    cursor: pointer;
+}
+
+#menu-icon i {
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+#menu-icon:hover i {
+    color: #00bcd4;
+}
+
+/* Dropdown Menu */
+#dropdown-menu {
+    position: absolute;
+    top: 100%; /* Position the menu below the menu-icon */
+    right: 0;
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 150px;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    padding: 10px;
+    z-index: 9999;
+}
+
+#dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s;
+    border-radius: 4px;
+}
+
+#dropdown-menu a:hover {
+    background: #00d4ff;
+    color: black;
+}
+
+/* Show the dropdown menu when hovering over the menu-icon */
+#menu-icon:hover #dropdown-menu {
+    display: flex; /* Make the menu visible */
+}
+
+/* Dropdown Button Styling */
+#dropdown-menu .dropdown-button {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+#dropdown-menu .dropdown-button:hover {
+    background-color: #00d4ff;
+    color: black;
+}
+
+/* Style for the Config Header in the Dropdown Menu */
+#dropdown-menu h4 {
+    text-align: center; /* Center the text */
+    font-size: 18px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    color: white; /* Set the text color */
+    margin-bottom: 10px; /* Add some spacing below the header */
+    border-bottom: 2px solid #00d4ff; /* Optional: Add a bottom border for separation */
+    padding-bottom: 1; /* Add padding below the text */
+}
 
 .sidebar-list li {
     display: flex;
@@ -252,12 +331,11 @@ body.light-mode #sidebar {
 }
 
 #header {
-    position: sticky;
-    top: 0;
+    position: relative; /* Ensure the header is the positioning context */
+    padding: 20px; /* Add padding to avoid overlap with the menu-icon */
     width: 96%;
     background: #222;
     color: white;
-    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -265,12 +343,49 @@ body.light-mode #sidebar {
     border-bottom: 5px solid #0072fd;
     
 }
+#header {
+    display: block; /* Ensure normal block flow */
+}
+
+#header h1, 
+#header p {
+    display: block; /* Ensure they don't sit inline */
+}
+
+
+
 /* Light mode header */
 body.light-mode #header {
     background: white;  /* Light background */
     color: black;  /* Dark text */
     border-bottom: 5px solid #0072fd;  /* Optional, keeps the blue border */
 }
+
+#menu-icon {
+    position: absolute; /* Position relative to the header */
+    top: -10px; /* Adjust the distance from the top of the header */
+    right: -10px; /* Adjust the distance from the right of the header */
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999; /* Ensure it appears above other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
+
+#menu-icon i {
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+#menu-icon:hover i {
+    color: #00bcd4;
+}
+
 #main {
     margin-top: 20px;
     padding: 20px 15px 5px 15px;  /* oliver -top right bottom left */
@@ -413,4 +528,61 @@ table tbody tr:nth-child(even) {
 #footer .copyright {
     font-size: 0.9em;
     margin-top: 1em;
+}
+
+/* Theme Toggle Container */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 100%;
+    color: white;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #00d4ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
 }
