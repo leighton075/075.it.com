@@ -9,16 +9,6 @@
     $body = $("body"),
     $main = $("#main");
 
-  // Breakpoints.
-  breakpoints({
-    xlarge: ["1281px", "1680px"],
-    large: ["981px", "1280px"],
-    medium: ["737px", "980px"],
-    small: ["481px", "736px"],
-    xsmall: ["361px", "480px"],
-    xxsmall: [null, "360px"],
-  });
-
   // Play initial animations on page load.
   $window.on("load", function () {
     window.setTimeout(function () {
@@ -45,12 +35,6 @@
     var $nav_a = $nav.find("a");
 
     $nav_a
-      .scrolly({
-        speed: 1000,
-        offset: function () {
-          return $nav.height();
-        },
-      })
       .on("click", function () {
         var $this = $(this);
 
@@ -104,11 +88,48 @@
       }
     });
   }
-
-  // Scrolly.
-  $(".scrolly").scrolly({
-    speed: 1000,
-  });
 })(jQuery);
+
+document.addEventListener('DOMContentLoaded', async () => {
+	try {
+		const response = await fetch('data.json');
+		const data = await response.json();
+
+		const personList = document.getElementById('person-list');
+		const benchmarkTableBody = document.getElementById('benchmark-table-body');
+
+		const renderBenchmarks = (benchmarks) => {
+			benchmarkTableBody.innerHTML = '';
+			benchmarks.forEach(benchmark => {
+				const tr = document.createElement('tr');
+				tr.innerHTML = `
+					<td>${new Date().getFullYear()}</td>
+					<td>${benchmark.quarter}</td>
+					<td>${benchmark.squat}</td>
+					<td>${benchmark.benchPress}</td>
+					<td>${benchmark.deadlift}</td>
+				`;
+				benchmarkTableBody.appendChild(tr);
+			});
+		};
+
+		data.people.forEach(person => {
+			// Populate the sidebar list
+			const li = document.createElement('li');
+			li.textContent = person.name;
+			li.addEventListener('click', () => {
+				renderBenchmarks(person.benchmarks);
+			});
+			personList.appendChild(li);
+		});
+
+		// Initially render the first person's benchmarks
+		if (data.people.length > 0) {
+			renderBenchmarks(data.people[0].benchmarks);
+		}
+	} catch (error) {
+		console.error('Error fetching benchmarks:', error);
+	}
+});
 
 
