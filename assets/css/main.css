@@ -63,21 +63,44 @@ a:hover {
     padding: 0;
     margin: 0;
     width: 100%;
-}
-/* Default dark mode styling */
+}/*  dark mode styling */
 body {
     background-color: #1e1e1e;  /* Dark background */
-    color: white;  /* Light text */
+    color: rgb(255, 255, 255);  /* Light text */
     transition: background-color 0.5s, color 0.5s;
 }
 
-/* Light mode styling */
+/* light mode styling */
 body.light-mode {
-    background-color: #ffffff;  /* Light background */
+    background-color: #F9F6EE;  /* Light background */
     color: black;  /* Dark text */
 }
 
-/* Button Styling */
+/* other styling for text */
+body.light-mode p, 
+body.light-mode h1,
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode h4, 
+body.light-mode h5, 
+body.light-mode h6, 
+body.light-mode a {
+    color: rgb(0, 0, 0); 
+}
+
+body.dark-mode p, 
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6, 
+body.dark-mode a {
+    color: white;  
+}
+
+
+/* light mode button styling */
 #theme-toggle {
     padding: 10px 20px;
     font-family: 'Poppins', sans-serif;
@@ -91,37 +114,38 @@ body.light-mode {
     transition: 0.3s ease-in-out;
 }
 
-/* Button hover styling */
+/* dark button hover styling */
 #theme-toggle:hover {
     background-color: white;
     color: black;
     border: 1px solid black;
 }
 
-/* Light mode button styling */
+/* light mode button styling */
 body.light-mode #theme-toggle {
     background-color: white;
     color: black;
+    border: 1px solid black;
+
 }
 
-/* Light mode button hover styling */
+/* light mode button hover styling */
 body.light-mode #theme-toggle:hover {
     background-color: black;
     color: white;
     border: 1px solid white;
 }
 
-/* Additional styling for links */
+/*  styling for links */
 a {
-    color: #00bcd4;  /* Set link color */
+    color: #00bcd4;  /* link color */
     text-decoration: none;
 }
 
 a:hover {
-    color: #ff5722;  /* Change link color on hover */
+    color: #ff5722;  /*  link color on hover */
 }
 
-/* Make sure all text elements are affected */
 body.light-mode a {
     color: #00bcd4;
 }
@@ -130,29 +154,92 @@ body:not(.light-mode) a {
     color: #00bcd4;
 }
 
-.settings-cog {
+/* menu icon shit */
+.menu-icon {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    top: 5px;
+    right: 30px;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
 }
 
-.settings-cog i {
-    font-size: 24px;
+/* dropdown Menu */
+#dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    right: 0;
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 150px;
+    display: none; 
+    flex-direction: column;
+    padding: 10px;
+    z-index: 9999;
+}
+
+#dropdown-menu a {
     color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s;
+    border-radius: 4px;
 }
 
+#dropdown-menu a:hover {
+    background: #00d4ff;
+    color: black;
+}
+
+/* hovering over the menu-icon stuff */
+#menu-icon:hover #dropdown-menu {
+    display: flex; 
+}
+
+/* dropdown button styling */
+#dropdown-menu .dropdown-button {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+#dropdown-menu .dropdown-button:hover {
+    background-color: #00d4ff;
+    color: black;
+}
+
+/* config header in the dropdown menu */
+#dropdown-menu h4 {
+    text-align: center; 
+    font-size: 18px; 
+    font-weight: bold; 
+    color: white; 
+    margin-bottom: 10px; 
+    border-bottom: 2px solid #00d4ff; 
+    padding-bottom: 10; 
+}
 
 .sidebar-list li {
     display: flex;
     align-items: center;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #40444b;
+    background-color: #3d64a8;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -174,26 +261,73 @@ body:not(.light-mode) a {
     font-weight: bold;
 }
 
+/* Light mode sidebar */
+body.light-mode #sidebar {
+    background-color: #ffffff;  /* Light background */
+    color: black;  /* Dark text */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);  /* Lighter shadow */
+}
 /* Main Content */
 #content {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
-}
+
 
 #header {
-    position: sticky;
-    top: 0;
+    position: relative; /* Ensure the header is the positioning context */
+    padding: 20px; /* Add padding to avoid overlap with the menu-icon */
     width: 96%;
     background: #222;
     color: white;
-    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
     border-bottom: 5px solid #0072fd;
     
+}
+#header {
+    display: block; /* Ensure normal block flow */
+}
+
+#header h1, 
+#header p {
+    display: block; /* Ensure they don't sit inline */
+}
+
+
+
+/* Light mode header */
+body.light-mode #header {
+    background: white;  /* Light background */
+    color: black;  /* Dark text */
+    border-bottom: 5px solid #0072fd;  /* Optional, keeps the blue border */
+}
+
+#menu-icon {
+    position: absolute; /* Position relative to the header */
+    top: -10px; /* Adjust the distance from the top of the header */
+    right: -10px; /* Adjust the distance from the right of the header */
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999; /* Ensure it appears above other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
+
+#menu-icon i {
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+#menu-icon:hover i {
+    color: #00bcd4;
 }
 
 #main {
@@ -202,6 +336,12 @@ body:not(.light-mode) a {
     background-color: #2f3136;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+/* Light mode main */
+body.light-mode #main {
+    background: white;  /* Light background */
+    color: black;  /* Dark text */
+    border-bottom: 5px solid #0072fd;  /* Optional, keeps the blue border */
 }
 
 .main {
@@ -332,4 +472,62 @@ table tbody tr:nth-child(even) {
 #footer .copyright {
     font-size: 0.9em;
     margin-top: 1em;
+}
+
+/* Theme Toggle Container */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 100%;
+    color: white;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #00d4ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
 }

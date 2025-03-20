@@ -140,4 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     })
     .catch(error => console.error('Error fetching benchmark data:', error));
+
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.addEventListener('change', () => {
+    document.body.classList.toggle('light-mode');
+    document.body.classList.toggle('dark-mode');
+  });
 });
+
