@@ -133,9 +133,8 @@ body:not(.light-mode) a {
 /* Menu Icon */
 .menu-icon {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    top: 5px;
+    right: 30px;
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
@@ -149,19 +148,13 @@ body:not(.light-mode) a {
 }
 
 .menu-icon i {
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     transition: color 0.3s ease-in-out;
 }
 
-/* Hover Effect */
-.menu-icon:hover {
-    background-color: #00d4ff;
-    box-shadow: 0 0 10px #00d4ff;
-}
-
 .menu-icon:hover i {
-    color: black;
+    color: #00bcd4;
 }
 
 /* Dropdown Menu */
