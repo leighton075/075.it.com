@@ -63,20 +63,20 @@ a:hover {
     padding: 0;
     margin: 0;
     width: 100%;
-}/* Default dark mode styling */
+}/*  dark mode styling */
 body {
     background-color: #1e1e1e;  /* Dark background */
     color: rgb(255, 255, 255);  /* Light text */
     transition: background-color 0.5s, color 0.5s;
 }
 
-/* Light mode styling */
+/* light mode styling */
 body.light-mode {
     background-color: #F9F6EE;  /* Light background */
     color: black;  /* Dark text */
 }
 
-/* Additional styling for other elements to make sure text color changes */
+/* other styling for text */
 body.light-mode p, 
 body.light-mode h1,
 body.light-mode h2, 
@@ -85,7 +85,7 @@ body.light-mode h4,
 body.light-mode h5, 
 body.light-mode h6, 
 body.light-mode a {
-    color: rgb(0, 0, 0);  /* Dark text for other elements in light mode */
+    color: rgb(0, 0, 0); 
 }
 
 body.dark-mode p, 
@@ -96,11 +96,11 @@ body.dark-mode h4,
 body.dark-mode h5, 
 body.dark-mode h6, 
 body.dark-mode a {
-    color: white;  /* Light text for other elements in dark mode */
+    color: white;  
 }
 
 
-/* Button Styling */
+/* light mode button styling */
 #theme-toggle {
     padding: 10px 20px;
     font-family: 'Poppins', sans-serif;
@@ -114,14 +114,14 @@ body.dark-mode a {
     transition: 0.3s ease-in-out;
 }
 
-/* Button hover styling */
+/* dark button hover styling */
 #theme-toggle:hover {
     background-color: white;
     color: black;
     border: 1px solid black;
 }
 
-/* Light mode button styling */
+/* light mode button styling */
 body.light-mode #theme-toggle {
     background-color: white;
     color: black;
@@ -129,24 +129,23 @@ body.light-mode #theme-toggle {
 
 }
 
-/* Light mode button hover styling */
+/* light mode button hover styling */
 body.light-mode #theme-toggle:hover {
     background-color: black;
     color: white;
     border: 1px solid white;
 }
 
-/* Additional styling for links */
+/*  styling for links */
 a {
-    color: #00bcd4;  /* Set link color */
+    color: #00bcd4;  /* link color */
     text-decoration: none;
 }
 
 a:hover {
-    color: #ff5722;  /* Change link color on hover */
+    color: #ff5722;  /*  link color on hover */
 }
 
-/* Make sure all text elements are affected */
 body.light-mode a {
     color: #00bcd4;
 }
@@ -155,7 +154,7 @@ body:not(.light-mode) a {
     color: #00bcd4;
 }
 
-/* Menu Icon */
+/* menu icon shit */
 .menu-icon {
     position: fixed;
     top: 5px;
@@ -172,71 +171,16 @@ body:not(.light-mode) a {
     height: 45px;
 }
 
-.menu-icon i {
-    font-size: 20px;
-    color: white;
-    transition: color 0.3s ease-in-out;
-}
-
-.menu-icon:hover i {
-    color: #00bcd4;
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
-    position: fixed;
-    top: 70px;
-    right: 20px;
-    background-color: #222;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    width: 150px;
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    padding: 10px;
-}
-
-.dropdown-menu a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-    transition: background 0.3s;
-    border-radius: 4px;
-}
-
-.dropdown-menu a:hover {
-    background: #00d4ff;
-    color: black;
-}
-
-/* Menu Icon */
-#menu-icon {
-    position: relative; /* Ensure the dropdown menu is positioned relative to the menu-icon */
-    display: inline-block;
-    cursor: pointer;
-}
-
-#menu-icon i {
-    font-size: 20px;
-    color: white;
-    transition: color 0.3s ease-in-out;
-}
-
-#menu-icon:hover i {
-    color: #00bcd4;
-}
-
-/* Dropdown Menu */
+/* dropdown Menu */
 #dropdown-menu {
     position: absolute;
-    top: 100%; /* Position the menu below the menu-icon */
+    top: 100%; 
     right: 0;
     background-color: #222;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     width: 150px;
-    display: none; /* Hidden by default */
+    display: none; 
     flex-direction: column;
     padding: 10px;
     z-index: 9999;
@@ -256,12 +200,12 @@ body:not(.light-mode) a {
     color: black;
 }
 
-/* Show the dropdown menu when hovering over the menu-icon */
+/* hovering over the menu-icon stuff */
 #menu-icon:hover #dropdown-menu {
-    display: flex; /* Make the menu visible */
+    display: flex; 
 }
 
-/* Dropdown Button Styling */
+/* dropdown button styling */
 #dropdown-menu .dropdown-button {
     background-color: #222;
     color: white;
@@ -279,15 +223,15 @@ body:not(.light-mode) a {
     color: black;
 }
 
-/* Style for the Config Header in the Dropdown Menu */
+/* config header in the dropdown menu */
 #dropdown-menu h4 {
-    text-align: center; /* Center the text */
-    font-size: 18px; /* Adjust the font size */
-    font-weight: bold; /* Make the text bold */
-    color: white; /* Set the text color */
-    margin-bottom: 10px; /* Add some spacing below the header */
-    border-bottom: 2px solid #00d4ff; /* Optional: Add a bottom border for separation */
-    padding-bottom: 1; /* Add padding below the text */
+    text-align: center; 
+    font-size: 18px; 
+    font-weight: bold; 
+    color: white; 
+    margin-bottom: 10px; 
+    border-bottom: 2px solid #00d4ff; 
+    padding-bottom: 10; 
 }
 
 .sidebar-list li {
@@ -328,7 +272,7 @@ body.light-mode #sidebar {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
-}
+
 
 #header {
     position: relative; /* Ensure the header is the positioning context */
@@ -585,4 +529,5 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(20px);
+}
 }
