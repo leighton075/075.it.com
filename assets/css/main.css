@@ -46,6 +46,7 @@ a:hover {
     align-items: center;
     padding: 20px;
     overflow-y: auto;
+    border-bottom: 5px solid #0072fd;
 }
 
 .sidebar-header {
@@ -63,6 +64,88 @@ a:hover {
     margin: 0;
     width: 100%;
 }
+/* Default dark mode styling */
+body {
+    background-color: #1e1e1e;  /* Dark background */
+    color: white;  /* Light text */
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Light mode styling */
+body.light-mode {
+    background-color: #ffffff;  /* Light background */
+    color: black;  /* Dark text */
+}
+
+/* Button Styling */
+#theme-toggle {
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    background-color: #090909;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Button hover styling */
+#theme-toggle:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+/* Light mode button styling */
+body.light-mode #theme-toggle {
+    background-color: white;
+    color: black;
+}
+
+/* Light mode button hover styling */
+body.light-mode #theme-toggle:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+/* Additional styling for links */
+a {
+    color: #00bcd4;  /* Set link color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff5722;  /* Change link color on hover */
+}
+
+/* Make sure all text elements are affected */
+body.light-mode a {
+    color: #00bcd4;
+}
+
+body:not(.light-mode) a {
+    color: #00bcd4;
+}
+
+.settings-cog {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.settings-cog i {
+    font-size: 24px;
+    color: white;
+}
+
 
 .sidebar-list li {
     display: flex;
@@ -99,15 +182,23 @@ a:hover {
 }
 
 #header {
-    background-color: #202225;
-    color: #ffffff;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #2f3136;
+    position: sticky;
+    top: 0;
+    width: 96%;
+    background: #222;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
+    border-bottom: 5px solid #0072fd;
+    
 }
 
 #main {
-    padding: 20px;
+    margin-top: 20px;
+    padding: 20px 15px 5px 15px;  /* oliver -top right bottom left */
     background-color: #2f3136;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -115,16 +206,15 @@ a:hover {
 
 .main {
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 10px;
     background-color: #36393f;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .main h2 {
     font-size: 2em;
     margin-bottom: 10px;
-    color: #ffffff;
-}
+    color: #ffffff;}
 
 .main p {
     font-size: 1.1em;
