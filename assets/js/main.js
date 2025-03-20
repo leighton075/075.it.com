@@ -111,40 +111,4 @@
   });
 })(jQuery);
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('/api/benchmarks') // Use relative URL to fetch data from the server
-    .then(response => response.json())
-    .then(data => {
-      console.log('Data received from server:', data); // Log the data
-      const personList = document.getElementById('person-list');
-      const benchmarkTableBody = document.getElementById('benchmark-table-body');
-
-      data.people.forEach(person => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `<img src="${person.image}" alt="${person.name}" /><span>${person.name}</span>`;
-        listItem.addEventListener('click', () => {
-          benchmarkTableBody.innerHTML = '';
-          person.benchmarks.forEach(benchmark => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-              <td>${benchmark.year}</td>
-              <td>${benchmark.quarter}</td>
-              <td>${benchmark.squat}</td>
-              <td>${benchmark.benchPress}</td>
-              <td>${benchmark.deadlift}</td>
-            `;
-            benchmarkTableBody.appendChild(row);
-          });
-        });
-        personList.appendChild(listItem);
-      });
-    })
-    .catch(error => console.error('Error fetching benchmark data:', error));
-
-  const themeToggle = document.getElementById('theme-toggle');
-  themeToggle.addEventListener('change', () => {
-    document.body.classList.toggle('light-mode');
-    document.body.classList.toggle('dark-mode');
-  });
-});
 
