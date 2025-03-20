@@ -67,13 +67,13 @@ a:hover {
 /* Default dark mode styling */
 body {
     background-color: #1e1e1e;  /* Dark background */
-    color: white;  /* Light text */
+    color: rgb(255, 255, 255);  /* Light text */
     transition: background-color 0.5s, color 0.5s;
 }
 
 /* Light mode styling */
 body.light-mode {
-    background-color: #ffffff;  /* Light background */
+    background-color: #F9F6EE;  /* Light background */
     color: black;  /* Dark text */
 }
 
@@ -130,20 +130,66 @@ body:not(.light-mode) a {
     color: #00bcd4;
 }
 
-.settings-cog {
+/* Menu Icon */
+.menu-icon {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
 }
 
-.settings-cog i {
+.menu-icon i {
     font-size: 24px;
     color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.menu-icon:hover {
+    background-color: #00d4ff;
+    box-shadow: 0 0 10px #00d4ff;
+}
+
+.menu-icon:hover i {
+    color: black;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 150px;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    padding: 10px;
+}
+
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s;
+    border-radius: 4px;
+}
+
+.dropdown-menu a:hover {
+    background: #00d4ff;
+    color: black;
 }
 
 
