@@ -64,6 +64,88 @@ a:hover {
     margin: 0;
     width: 100%;
 }
+/* Default dark mode styling */
+body {
+    background-color: #1e1e1e;  /* Dark background */
+    color: white;  /* Light text */
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Light mode styling */
+body.light-mode {
+    background-color: #ffffff;  /* Light background */
+    color: black;  /* Dark text */
+}
+
+/* Button Styling */
+#theme-toggle {
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    background-color: #090909;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Button hover styling */
+#theme-toggle:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+/* Light mode button styling */
+body.light-mode #theme-toggle {
+    background-color: white;
+    color: black;
+}
+
+/* Light mode button hover styling */
+body.light-mode #theme-toggle:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+/* Additional styling for links */
+a {
+    color: #00bcd4;  /* Set link color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff5722;  /* Change link color on hover */
+}
+
+/* Make sure all text elements are affected */
+body.light-mode a {
+    color: #00bcd4;
+}
+
+body:not(.light-mode) a {
+    color: #00bcd4;
+}
+
+.settings-cog {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.settings-cog i {
+    font-size: 24px;
+    color: white;
+}
+
 
 .sidebar-list li {
     display: flex;
