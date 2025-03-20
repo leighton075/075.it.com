@@ -63,8 +63,7 @@ a:hover {
     padding: 0;
     margin: 0;
     width: 100%;
-}
-/* Default dark mode styling */
+}/* Default dark mode styling */
 body {
     background-color: #1e1e1e;  /* Dark background */
     color: rgb(255, 255, 255);  /* Light text */
@@ -76,6 +75,30 @@ body.light-mode {
     background-color: #F9F6EE;  /* Light background */
     color: black;  /* Dark text */
 }
+
+/* Additional styling for other elements to make sure text color changes */
+body.light-mode p, 
+body.light-mode h1,
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode h4, 
+body.light-mode h5, 
+body.light-mode h6, 
+body.light-mode a {
+    color: rgb(0, 0, 0);  /* Dark text for other elements in light mode */
+}
+
+body.dark-mode p, 
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6, 
+body.dark-mode a {
+    color: white;  /* Light text for other elements in dark mode */
+}
+
 
 /* Button Styling */
 #theme-toggle {
@@ -102,6 +125,8 @@ body.light-mode {
 body.light-mode #theme-toggle {
     background-color: white;
     color: black;
+    border: 1px solid black;
+
 }
 
 /* Light mode button hover styling */
@@ -191,7 +216,7 @@ body:not(.light-mode) a {
     align-items: center;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #40444b;
+    background-color: #3d64a8;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -213,6 +238,12 @@ body:not(.light-mode) a {
     font-weight: bold;
 }
 
+/* Light mode sidebar */
+body.light-mode #sidebar {
+    background-color: #ffffff;  /* Light background */
+    color: black;  /* Dark text */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);  /* Lighter shadow */
+}
 /* Main Content */
 #content {
     flex: 1;
@@ -234,13 +265,24 @@ body:not(.light-mode) a {
     border-bottom: 5px solid #0072fd;
     
 }
-
+/* Light mode header */
+body.light-mode #header {
+    background: white;  /* Light background */
+    color: black;  /* Dark text */
+    border-bottom: 5px solid #0072fd;  /* Optional, keeps the blue border */
+}
 #main {
     margin-top: 20px;
     padding: 20px 15px 5px 15px;  /* oliver -top right bottom left */
     background-color: #2f3136;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+/* Light mode main */
+body.light-mode #main {
+    background: white;  /* Light background */
+    color: black;  /* Dark text */
+    border-bottom: 5px solid #0072fd;  /* Optional, keeps the blue border */
 }
 
 .main {
