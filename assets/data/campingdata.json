@@ -5,23 +5,61 @@
             "image": "images/leighton.png",
             "items": [
                 {
-                    "name": "tent",
-                    "amount": 2
+                    "name": "Air Pump",
+                    "amount": 1
                 }
             ]
         },
         {
             "name": "Oliver",
-            "image": "images/oliver.jpg",
+            "image": "images/oliver.png",
             "items": [
                 {
-                    "name": "tent",
+                    "name": "Powerbank",
                     "amount": 1
                 },
                 {
-                    "name": "sleeping bag",
+                    "name": "Sleeping bag",
                     "amount": 1
                 }
+                
+            ]
+        },
+        {
+            "name": "Nate",
+            "image": "images/nate.png",
+            "items": [
+                {
+                    "name": "Sleeping bag",
+                    "amount": 1
+                }
+                
+            ]
+        },
+        {
+            "name": "Ethan",
+            "image": "images/ethan.png",
+            "items": [
+                {
+                    "name": "Tent",
+                    "amount": 1
+                }
+                
+            ]
+        },
+        {
+            "name": "Bailey",
+            "image": "images/bailey.png",
+            "items": [
+                {
+                    "name": "Cock",
+                    "amount": 0.5
+                },
+                {
+                    "name": "Femboy body pillow",
+                    "amount": 5
+                }
+                
             ]
         }
     ]

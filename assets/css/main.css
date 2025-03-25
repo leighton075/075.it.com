@@ -56,7 +56,7 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.sidebar-header h2 {
+.sidebar-header {
     color: #ffffff;
     margin-top: 50px;
 }
@@ -80,6 +80,8 @@ body.light-mode {
 }
 
 /* other styling for text */
+body.light-mode p, 
+body.light-mode h1,
 body.light-mode h2, 
 body.light-mode h3, 
 body.light-mode h4, 
@@ -99,7 +101,6 @@ body.dark-mode h6,
 body.dark-mode a {
     color: white;  
 }
-
 
 /* light mode button styling */
 #theme-toggle {
@@ -587,28 +588,41 @@ input:checked + .slider:before {
 
 /* Dropdown Menu */
 #page-select {
-    background-color: #2f3136;
+    background-color: #2f3136; 
     color: #ffffff;
     border: 1px solid #40444b;
-    border-radius: 5px;
-    padding: 5px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
+    border-radius: 5px; 
+    padding: 8px 1px;
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 14px; 
     transition: background-color 0.3s, color 0.3s;
+    cursor: pointer; /
+}
+
+#page-select:hover {
+    background-color: #5865f2; 
+    color: #ffffff; 
 }
 
 #page-select option {
-    background-color: #2f3136;
+    background-color: #2f3136; 
     color: #ffffff;
+    padding: 5px; 
 }
 
+/* Light Mode Styling for Page Select */
 body.light-mode #page-select {
-    background-color: #ffffff;
+    background-color: #ffffff; 
     color: #000000;
-    border: 1px solid #cccccc;
+    border: 1px solid #cccccc; 
+}
+
+body.light-mode #page-select:hover {
+    background-color: #0072fd; 
+    color: #ffffff; 
 }
 
 body.light-mode #page-select option {
-    background-color: #ffffff;
+    background-color: #ffffff; 
     color: #000000;
 }
