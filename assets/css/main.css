@@ -295,7 +295,7 @@ body.light-mode #sidebar {
     margin: 0;
     font-size: 1.5em;
     margin-right: 20px; /* Add spacing between the title and nav links */
-    width: 300px; /* Fixed width to keep navbar items in place */
+    width: 200px; /* Fixed width to keep navbar items in place */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden; /* Hide overflow text */
     text-overflow: ellipsis; /* Add ellipsis for overflow text */
