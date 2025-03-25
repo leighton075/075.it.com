@@ -1,6 +1,16 @@
 {
     "people": [
         {
+            "name": "Everyone",
+            "image": "palceholder",
+            "items": [
+                {
+                    "name": "Sleeping bag",
+                    "amount": 1
+                }
+            ]
+        },
+        {
             "name": "Leighton",
             "image": "images/leighton.png",
             "items": [

@@ -4,40 +4,40 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await response.json();
 
         const personList = document.getElementById('person-list');
-        const benchmarkTableBody = document.getElementById('benchmark-table-body');
+        const tableBody = document.getElementById('table-body');
+        const header = document.querySelector('#main header h2');
 
-        const renderBenchmarks = (benchmarks) => {
-            benchmarkTableBody.innerHTML = '';
-            benchmarks.forEach(benchmark => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${new Date().getFullYear()}</td>
+        const renderBenchmarks = (person) => {
+            tableBody.innerHTML = '';
+            person.benchmarks.forEach(benchmark => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
                     <td>${benchmark.quarter}</td>
                     <td>${benchmark.squat}</td>
                     <td>${benchmark.benchPress}</td>
                     <td>${benchmark.deadlift}</td>
                 `;
-                benchmarkTableBody.appendChild(tr);
+                tableBody.appendChild(row);
             });
+            header.textContent = `Gym Benchmarks - ${person.name}`;
         };
 
         data.people.forEach(person => {
-            // Populate the sidebar list
             const li = document.createElement('li');
             li.innerHTML = `
                 <img src="${person.image}" alt="${person.name}">
                 <span>${person.name}</span>
             `;
             li.addEventListener('click', () => {
-                renderBenchmarks(person.benchmarks);
+                renderBenchmarks(person);
             });
             personList.appendChild(li);
         });
 
         // Initially render the first person's benchmarks
         if (data.people.length > 0) {
-            renderBenchmarks(data.people[0].benchmarks);
-        }
+            renderBenchmarks(data.people[0]);
+        }     
     } catch (error) {
         console.error('Error fetching gym data:', error);
     }

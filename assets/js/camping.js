@@ -4,7 +4,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await response.json();
 
         const personList = document.getElementById('person-list');
-        const tableBody = document.getElementById('benchmark-table-body');
+        const tableBody = document.getElementById('table-body');
+        const header = document.querySelector('#main header h2');
+
+        const renderItems = (person) => {
+            tableBody.innerHTML = '';
+            person.items.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.amount}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+            header.textContent = `Camping List - ${person.name}`;
+        };
 
         data.people.forEach(person => {
             // Populate the sidebar list
@@ -14,21 +28,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <span>${person.name}</span>
             `;
             li.addEventListener('click', () => {
-                alert(`Items for ${person.name}: ${person.items.map(item => `${item.name} (${item.amount})`).join(', ')}`);
+                renderItems(person);
             });
             personList.appendChild(li);
-
-            // Populate the table
-            person.items.forEach(item => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${person.name}</td>
-                    <td>${item.name}</td>
-                    <td>${item.amount}</td>
-                `;
-                tableBody.appendChild(row);
-            });
         });
+
+        // Initially render the first person's items
+        if (data.people.length > 0) {
+            renderItems(data.people[0]);
+        }
     } catch (error) {
         console.error('Error fetching camping data:', error);
     }

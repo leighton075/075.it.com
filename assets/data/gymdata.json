@@ -2,7 +2,7 @@
     "people": [
       {
         "name": "Leighton",
-        "image": "images/leighton.jpg",
+        "image": "images/leighton.png",
         "benchmarks": [
           {
             "quarter": "Q1",
@@ -20,7 +20,7 @@
       },
       {
         "name": "Oliver",
-        "image": "images/oliver.jpg",
+        "image": "images/oliver.png",
         "benchmarks": [
           {
             "quarter": "Q1",
@@ -38,7 +38,7 @@
       },
       {
         "name": "Nate",
-        "image": "images/nate.jpg",
+        "image": "images/nate.png",
         "benchmarks": [
           {
             "quarter": "Q1",
@@ -56,7 +56,43 @@
       },
       {
         "name": "Adam",
-        "image": "images/adam.jpg",
+        "image": "images/adam.png",
+        "benchmarks": [
+          {
+            "quarter": "Q1",
+            "squat": "-",
+            "benchPress": "-",
+            "deadlift": "-"
+          },
+          {
+            "quarter": "Q2",
+            "squat": "-",
+            "benchPress": "-",
+            "deadlift": "-"
+          }
+        ]
+      },
+      {
+        "name": "Bailey",
+        "image": "images/bailey.png",
+        "benchmarks": [
+          {
+            "quarter": "Q1",
+            "squat": "-",
+            "benchPress": "-",
+            "deadlift": "-"
+          },
+          {
+            "quarter": "Q2",
+            "squat": "-",
+            "benchPress": "-",
+            "deadlift": "-"
+          }
+        ]
+      },
+      {
+        "name": "Ethan",
+        "image": "images/ethan.png",
         "benchmarks": [
           {
             "quarter": "Q1",
