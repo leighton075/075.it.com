@@ -79,7 +79,7 @@ body.light-mode {
     color: black;  /* Dark text */
 }
 
-/* other styling for text deez */
+/* other styling for text */
 body.light-mode p, 
 body.light-mode h1,
 body.light-mode h2, 
@@ -296,6 +296,10 @@ body.light-mode #sidebar {
     margin: 0;
     font-size: 1.5em;
     margin-right: 20px; /* Add spacing between the title and nav links */
+    width: 200px; /* Fixed width to keep navbar items in place */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
 }
 
 nav {
@@ -580,4 +584,32 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(20px);
+}
+
+/* Dropdown Menu */
+#page-select {
+    background-color: #2f3136;
+    color: #ffffff;
+    border: 1px solid #40444b;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#page-select option {
+    background-color: #2f3136;
+    color: #ffffff;
+}
+
+body.light-mode #page-select {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #cccccc;
+}
+
+body.light-mode #page-select option {
+    background-color: #ffffff;
+    color: #000000;
 }
