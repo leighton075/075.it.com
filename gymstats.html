@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Gym Progress Tracker</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body class="is-preload">
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="sidebar-header">
+                <h2>Athletes</h2>
+            </div>
+            <ul class="sidebar-list" id="person-list">
+                <!-- List of people will be populated by JavaScript -->
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Header -->
+            <header id="header">
+                <h1>Gym Progress Tracker</h1>
+                <nav>
+                    <ul class="nav-links">
+                        <li>
+                            <form action="#" id="page-form">
+                                <select name="page" id="page-select">
+                                    <option value="index.html">Home</option>
+                                    <option value="gymstats.html">Gym Stats</option>
+                                    <option value="campinglist.html">Camping List</option>
+                                </select>
+                            </form>
+                        </li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="menu-icon" class="menu-icon">
+                    <i class="fas fa-bars"></i>
+                    <!-- Dropdown Menu -->
+                    <div id="dropdown-menu" class="dropdown-menu">
+                        <h4>Config</h4>
+                        <div class="theme-toggle-container">
+                            <span>Light Mode</span>
+                            <label class="switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main -->
+            <div id="main">
+                <!-- Progress Section -->
+                <section id="progress" class="main special">
+                    <header class="major">
+                        <h2>Progress</h2>
+                    </header>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Quarter</th>
+                                    <th>Squat</th>
+                                    <th>Bench Press</th>
+                                    <th>Deadlift</th>
+                                </tr>
+                            </thead>
+                            <tbody id="benchmark-table-body">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/theme-toggle.js"></script>
+        <script src="assets/js/gymstats.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
