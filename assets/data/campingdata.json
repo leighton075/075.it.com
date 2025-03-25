@@ -1,0 +1,28 @@
+{
+    "people": [
+        {
+            "name": "Leighton",
+            "image": "images/leighton.png",
+            "items": [
+                {
+                    "name": "tent",
+                    "amount": 2
+                }
+            ]
+        },
+        {
+            "name": "Oliver",
+            "image": "images/oliver.jpg",
+            "items": [
+                {
+                    "name": "tent",
+                    "amount": 1
+                },
+                {
+                    "name": "sleeping bag",
+                    "amount": 1
+                }
+            ]
+        }
+    ]
+}
