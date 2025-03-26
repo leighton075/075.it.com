@@ -38,7 +38,7 @@ a:hover {
 }
 
 #sidebar {
-    width: 175px; /* Slightly wider for better spacing */
+    width: 200px; /* Slightly wider for better spacing */
     background-color: #2f3136; /* Keep the dark background */
     display: flex;
     flex-direction: column;
