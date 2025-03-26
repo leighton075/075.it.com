@@ -385,6 +385,10 @@ body.light-mode #header {
     border-bottom: 5px solid #0072fd;  /* Optional, keeps the blue border */
 }
 
+body.light-mode #menu-icon i {
+    color: black; /* Change the icon color to black */
+}
+
 #main {
     margin-top: 20px;
     padding: 20px 15px 5px 15px;  /* oliver -top right bottom left */
@@ -394,8 +398,8 @@ body.light-mode #header {
 }
 /* Light mode main */
 body.light-mode #main {
-    background: white;  /* Light background */
-    color: black;  /* Dark text */
+    background-color: hwb(216 90% 8%);
+    
     border-bottom: 5px solid #0072fd;  /* Optional, keeps the blue border */
 }
 
@@ -405,6 +409,8 @@ body.light-mode #main {
     background-color: #36393f;
     border-radius: 10px;
 }
+
+
 
 .main h2 {
     font-size: 2em;
@@ -445,6 +451,36 @@ table tbody tr:nth-child(even) {
     background-color: #2f3136;
 }
 
+body.light-mode #main table th {
+    background-color: #f2f2f2; /* Light gray background for table headers */
+    color: #000000; /* Dark text for table headers */
+}
+
+body.light-mode #main .main {
+    background-color: #1e529b; /* Light gray background for table headers */
+    color: #000000; /* Dark text for table headers */
+}
+
+/* Light mode table styling */
+body.light-mode #main table {
+    background-color: #ffffff; /* Light background for the table */
+    color: #000000; /* Dark text for the table */
+    border: 1px solid #cccccc; /* Light border for the table */
+}
+
+body.light-mode #main table th {
+    background-color: #f2f2f2; /* Light gray background for table headers */
+    color: #000000; /* Dark text for table headers */
+}
+
+body.light-mode #main table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Very light gray for even rows */
+}
+
+body.light-mode #main table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+}
+
 /* Buttons */
 .button {
     display: inline-block;
@@ -473,7 +509,7 @@ table tbody tr:nth-child(even) {
 
 /* Footer */
 #footer {
-    background: #161b22;
+    background: #1e529b;
     color: #ffffff;
     padding: 3em 0;
     text-align: center;
