@@ -32,14 +32,6 @@ body {
     box-shadow: none !important
 }
 
-.navbar-brand {
-    font-size: 25px !important
-}
-
-.navbar-toggler-icon {
-    color: #fff !important
-}
-
 .btn {
     border-radius: 10px !important;
     font-size: 16px !important;
@@ -130,17 +122,6 @@ body {
     max-width: 332 !important;
 }
 
-.statistics .title {
-    font-size: 40px !important;
-    color: #ffffff !important;
-    line-height: 70px !important;
-}
-
-.statistics .subtitle {
-    font-size: 20px !important;
-    color: #a2a8bd;
-}
-
 .card.statistic {
     background: transparent !important;
     box-shadow: none !important;
@@ -174,10 +155,6 @@ color: rgba(255, 255, 255, 0.46) !important
 
 .features .card-body {
     padding: 40px 40px 40px 30px !important;
-}
-
-.navbar-toggler-icon {
-    color: #fff !important
 }
 .footer {
     text-align: center !important;
