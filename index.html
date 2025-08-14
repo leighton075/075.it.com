@@ -33,27 +33,16 @@
                 <a class="nav-link" href="#getStarted">Book</a>
             </li>
         </ul>
-        <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Documentation
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Commands</a>
-                <a class="dropdown-item" href="#">Tutorials</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Server settings</a>
-            </div>
-        </div>
-        <div class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </div>
         <button class="btn login-btn btn-outline-accent my-2 my-sm-0" style="font-size: 10px !important;font-family: poppins !important;">LOGIN</button>
     </div>
 </nav>
+<button id="returnTopBtn" class="btn btn-secondary" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+    <img src="assets/upArrow.svg" width="24" height="24" alt="Return to top">
+</button>
 <div class="heading">
     <h1 class="display-5 title">Welcome to the Rotorua Skyline</h1>
     <p class="subtitle">Come and have a go on the Luge Rotorua - good luck stopping at one ride!<br />Also features auto-moderation, game stats and more.</p>
-    <a class="btn btn-primary btn-lg" href="https://discord.com/oauth2/authorize?client_id=1290426522519343187" target="_blank" role="button">Book Now</a>
+    <a class="btn btn-primary btn-lg" href="booking.html" role="button">Book Now</a>
     <a class="btn btn-secondary btn-lg" href="https://github.com/leighton075/075-bot" target="_blank" role="button">Learn More</a>
 </div>
 <div class="features" id="features">
@@ -115,7 +104,7 @@
                 <div class="title">Ready book now?</div>
                 <div class="subtitle">Whoever you are, whatever mood you&apos;re in - we have something for you!</div>
                 <br />
-                <a class="btn btn-primary btn-lg" href="#start_link" role="button" id="getStarted">Get started</a>
+                <a class="btn btn-primary btn-lg" href="booking.html" role="button" id="getStarted">Book Now</a>
             </div><br />
         </div>
     </div>
@@ -131,5 +120,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/now-ui-kit.min.js"></script>
+<script>
+$('#returnTopBtn').on('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
 </body>
 </html>
