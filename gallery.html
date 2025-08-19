@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/now-ui-kit.css">
+        <link rel="preload" as="style" href="css/main.css" onload="this.rel='stylesheet'">
+<link rel="preload" as="style" href="css/now-ui-kit.css" onload="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/now-ui-kit.css">
+</noscript>
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
         <style>
             .gallery-img {
                 transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s, border-color 0.3s;
@@ -19,7 +24,6 @@
             }
         </style>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800,900&display=swap" rel="stylesheet">
     <title>Rotorua Skyline</title>
