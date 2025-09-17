@@ -1,0 +1,112 @@
+<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
+    <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="css/now-ui-kit.css?v=2" onload="this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="css/main.css?v=2">
+      <link rel="stylesheet" href="css/now-ui-kit.css?v=2">
+    </noscript>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <title>Rotorua Skyline Gallery</title>
+    <style>
+        .gallery-img {
+            transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s, border-color 0.3s;
+            border: 4px solid transparent;
+        }
+        .gallery-img:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 32px #AD91FF99, 0 2px 8px rgba(0,0,0,0.2);
+            border-color: #AD91FF;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+<!-- Use this at the top of every .php file -->
+<nav class="navbar navbar-expand-lg bg-transparent">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="assets/menuIcon.svg" width="20" height="20" style="max-width: none !important;" alt="Menu Icon">
+    </button>
+    <a href="index.php"><img src="assets/siteLogo.png" width="50" height="50" alt="Site Logo"></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="activities.php">Attractions</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="dining.php">Dining</a></li>
+            <li class="nav-item"><a class="nav-link" href="locations.php">Locations</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+        </ul>
+        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
+            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
+        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+    </div>
+</nav>
+<button id="returnTopBtn" class="btn btn-secondary" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+    <img src="assets/upArrow.svg" width="24" height="24" alt="Return to top">
+</button>
+<div class="heading text-center mt-5 mb-4">
+    <h1 class="display-5 title">Rotorua Skyline Gallery</h1>
+    <p class="subtitle">A selection of photos from our attractions and events.</p>
+</div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6 mb-4 d-flex justify-content-center">
+            <img src="assets/Skyline%20Night-4_edit.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Night">
+        </div>
+        <div class="col-md-6 mb-4 d-flex justify-content-center">
+            <img src="assets/Skyline%20Rotorua%205%20(1).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Rotorua 5">
+        </div>
+        <div class="col-md-6 mb-4 d-flex justify-content-center">
+            <img src="assets/Skyline%20Rotorua%20Couple%20(2).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Rotorua Couple">
+        </div>
+        <div class="col-md-6 mb-4 d-flex justify-content-center">
+            <img src="assets/Skyline%20Rotorua%20Gondola%20Sun%20Set%20Photo%201.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Gondola Sun Set">
+        </div>
+        <div class="col-md-6 mb-4 d-flex justify-content-center">
+            <img src="assets/Skyline%20Rotorua%20Night%20Luge%20(3).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Night Luge">
+        </div>
+        <div class="col-md-6 mb-4 d-flex justify-content-center">
+            <img src="assets/Skyline%20Rotorua%20Zipline%20.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Zipline">
+        </div>
+    </div>
+</div>
+<div class="page_end">
+    <div class="start">
+        <div class="card">
+            <div class="card-body gs-card">
+                <div class="title">Ready book now?</div>
+                <div class="subtitle">Whoever you are, whatever mood you&apos;re in - we have something for you!</div>
+                <br>
+                <a class="btn btn-primary btn-lg" href="booking.php" role="button" id="getStarted">Book Now</a>
+            </div><br>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="bot-footer">
+            <img src="assets/siteLogoWord.png" width="150" alt="Site Logo Word"><br>
+            Copyright © Leighton Simmons - 2025
+        </div><br>
+        <div class="nouridio">support on me <a href="https://ko-fi.com/leighton075" target="_blank">kofi</a></div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/now-ui-kit.min.js"></script>
+<script>
+$('#returnTopBtn').on('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
