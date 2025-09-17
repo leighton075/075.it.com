@@ -53,20 +53,18 @@ if ($is_logged_in) {
             <li class="nav-item"><a class="nav-link" href="index.php#statistics">Statistics</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+            <li class="nav-item"><a class="nav-link" href="edit_my_booking.php">Edit Booking</a></li>
             <?php if ($is_admin): ?>
                 <!-- Only show for admins -->
                 <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
             <?php endif; ?>
         </ul>
-        <!-- Show logout if logged in, else login/register -->
+        <!-- Consistent button sizes -->
         <?php if ($is_logged_in): ?>
-            <a href="logout.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-                style="font-size: 10px !important;font-family: poppins !important;">LOGOUT</a>
+            <a href="logout.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2" style="font-size: 10px !important; font-family: poppins !important;">LOGOUT</a>
         <?php else: ?>
-            <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
-                style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
-            <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-                style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+            <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0" style="font-size: 10px !important; font-family: poppins !important;">LOGIN</a>
+            <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2" style="font-size: 10px !important; font-family: poppins !important;">REGISTER</a>
         <?php endif; ?>
     </div>
 </nav>
@@ -171,5 +169,7 @@ $('#returnTopBtn').on('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
+</body>
+</html>
 </body>
 </html>
