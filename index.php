@@ -44,7 +44,6 @@ if ($is_logged_in) {
             <li class="nav-item"><a class="nav-link" href="index.php#statistics">Statistics</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
-            <li class="nav-item"><a class="nav-link" href="edit_my_booking.php">Edit Booking</a></li>
             <?php if ($is_admin): ?>
                 <!-- Only show for admins -->
                 <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
