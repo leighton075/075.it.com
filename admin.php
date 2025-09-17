@@ -1,5 +1,6 @@
 <?php
 session_start();
+$is_logged_in = isset($_SESSION['user_id']);
 $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -53,10 +54,15 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
                 <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
             <?php endif; ?>
         </ul>
-        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
-            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
-        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+        <?php if ($is_logged_in): ?>
+            <a href="logout.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+                style="font-size: 10px !important;font-family: poppins !important;">LOGOUT</a>
+        <?php else: ?>
+            <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
+                style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
+            <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+                style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+        <?php endif; ?>
     </div>
 </nav>
 <div class="heading text-center mb-4" style="padding: 80px 50px !important;">
@@ -118,7 +124,6 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
         <img src="assets/siteLogoWord.png" width="150" alt="Site Logo Word"><br>
         Copyright © Leighton Simmons - 2025
     </div><br>
-    <div class="nouridio">support on me <a href="https://ko-fi.com/leighton075" target="_blank">kofi</a></div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

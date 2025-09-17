@@ -1,7 +1,8 @@
 <?php
 session_start();
 $is_admin = 0;
-if (isset($_SESSION['user_id'])) {
+$is_logged_in = isset($_SESSION['user_id']);
+if ($is_logged_in) {
     $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
     $user_id = $_SESSION['user_id'];
     $result = $mysqli->query("SELECT is_admin FROM users WHERE user_id = $user_id");
@@ -57,10 +58,15 @@ if (isset($_SESSION['user_id'])) {
                 <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
             <?php endif; ?>
         </ul>
-        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
-            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
-        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+        <?php if ($is_logged_in): ?>
+            <a href="logout.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+                style="font-size: 10px !important;font-family: poppins !important;">LOGOUT</a>
+        <?php else: ?>
+            <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
+                style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
+            <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+                style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+        <?php endif; ?>
     </div>
 </nav>
 <button id="returnTopBtn" class="btn btn-secondary" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
@@ -108,7 +114,6 @@ if (isset($_SESSION['user_id'])) {
             <img src="assets/siteLogoWord.png" width="150" alt="Site Logo Word"><br>
             Copyright © Leighton Simmons - 2025
         </div><br>
-        <div class="nouridio">support on me <a href="https://ko-fi.com/leighton075" target="_blank">kofi</a></div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
