@@ -10,6 +10,14 @@ if ($is_logged_in) {
     $is_admin = $result ? ($result->fetch_assoc()['is_admin'] ?? 0) : 0;
     $mysqli->close();
 }
+
+// Fetch statistics for display
+$mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
+$total_accounts = $mysqli->query("SELECT COUNT(*) AS cnt FROM users")->fetch_assoc()['cnt'] ?? 0;
+$total_bookings = $mysqli->query("SELECT COUNT(*) AS cnt FROM bookings")->fetch_assoc()['cnt'] ?? 0;
+// Attractions are hardcoded in the features section (Luge, Gondala, Skyswing, Mountain Bike Park)
+$total_attractions = 4;
+$mysqli->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,20 +126,26 @@ if ($is_logged_in) {
     <div class="cards">
         <div class="card statistic" style="width: 18rem;">
             <div class="card-body">
-                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</p>
-                <p style="font-weight: bold !important;font-size: 20px !important;">Total Guests Served</p>
+                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">
+                    <?= $total_accounts ?>
+                </p>
+                <p style="font-weight: bold !important;font-size: 20px !important;">Total Accounts</p>
             </div>
         </div>
         <div class="card statistic" style="width: 18rem;">
             <div class="card-body">
-                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</p>
-                <p style="font-weight: bold !important;font-size: 20px !important;">Current Amount of Guests</p>
+                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">
+                    <?= $total_bookings ?>
+                </p>
+                <p style="font-weight: bold !important;font-size: 20px !important;">Total Bookings</p>
             </div>
         </div>
         <div class="card statistic" style="width: 18rem;">
             <div class="card-body">
-                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</p>
-                <p style="font-weight: bold !important;font-size: 20px !important;">Luge Tracks Open</p> 
+                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">
+                    <?= $total_attractions ?>
+                </p>
+                <p style="font-weight: bold !important;font-size: 20px !important;">Number of Attractions</p> 
             </div>
         </div>
     </div>
