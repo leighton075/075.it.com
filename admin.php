@@ -60,7 +60,7 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
     </div>
 </nav>
 <div class="heading text-center mb-4" style="padding: 80px 50px !important;">
-    <h1 class="display-5 title" style="color: #AD91FF;">Admin Dashboard</h1>
+    <h1 class="display-5 title" style="color: rgba(255, 255, 255, 0.85);">Admin Dashboard</h1>
     <p class="subtitle">Manage users and bookings below.</p>
 </div>
 <div class="container my-5">
@@ -78,11 +78,11 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
                 <td><?= htmlspecialchars($u['phone']) ?></td>
                 <td><?= $u['is_admin'] ? 'Yes' : 'No' ?></td>
                 <td>
-                    <a href="edit_user.php?id=<?= $u['user_id'] ?>" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="edit_user.php?id=<?= $u['user_id'] ?>" class="btn btn-sm btn-primary" style="background-color:#007bff;border-color:#007bff;">Edit</a>
                     <?php if ($u['user_id'] != 3): ?>
-                        <a href="delete_user.php?id=<?= $u['user_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete user?')">Delete</a>
+                        <a href="delete_user.php?id=<?= $u['user_id'] ?>" class="btn btn-sm btn-danger" style="background-color:#dc3545;border-color:#dc3545;" onclick="return confirm('Delete user?')">Delete</a>
                     <?php else: ?>
-                        <span class="btn btn-sm btn-secondary disabled" title="Cannot delete root admin">Delete</span>
+                        <span class="btn btn-sm btn-secondary disabled" style="background-color:#6c757d;border-color:#6c757d;" title="Cannot delete root admin">Delete</span>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -105,8 +105,8 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
                 <td><?= $b['guests'] ?></td>
                 <td><?= htmlspecialchars($b['activity']) ?></td>
                 <td>
-                    <a href="edit_booking.php?id=<?= $b['booking_id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                    <a href="delete_booking.php?id=<?= $b['booking_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete booking?')">Delete</a>
+                    <a href="edit_booking.php?id=<?= $b['booking_id'] ?>" class="btn btn-sm btn-primary" style="background-color:#007bff;border-color:#007bff;">Edit</a>
+                    <a href="delete_booking.php?id=<?= $b['booking_id'] ?>" class="btn btn-sm btn-danger" style="background-color:#dc3545;border-color:#dc3545;" onclick="return confirm('Delete booking?')">Delete</a>
                 </td>
             </tr>
         <?php endwhile; ?>
