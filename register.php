@@ -17,19 +17,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $phone = trim($_POST['phone'] ?? '');
         $password = $_POST['password'] ?? '';
         if ($first_name && $last_name && $email && $password) {
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-            $stmt = $mysqli->prepare("INSERT INTO users (first_name, last_name, email, phone, password) VALUES (?, ?, ?, ?, ?)");
-            if ($stmt) {
-                $stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $hash);
-                if ($stmt->execute()) {
-                    $register_success = "Registration successful! You can now log in.";
-                } else {
-                    $register_error = "Registration failed. Email may already be in use.";
-                }
-                $stmt->close();
+            // Check if email already exists
+            $check_stmt = $mysqli->prepare("SELECT user_id FROM users WHERE email = ?");
+            $check_stmt->bind_param("s", $email);
+            $check_stmt->execute();
+            $check_stmt->store_result();
+            if ($check_stmt->num_rows > 0) {
+                $register_error = "Email is already registered. Please log in.";
             } else {
-                $register_error = "Database error: " . $mysqli->error;
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $stmt = $mysqli->prepare("INSERT INTO users (first_name, last_name, email, phone, password) VALUES (?, ?, ?, ?, ?)");
+                if ($stmt) {
+                    $stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $hash);
+                    if ($stmt->execute()) {
+                        $register_success = "Registration successful! You can now log in.";
+                    } else {
+                        $register_error = "Registration failed. Please try again.";
+                    }
+                    $stmt->close();
+                } else {
+                    $register_error = "Database error: " . $mysqli->error;
+                }
             }
+            $check_stmt->close();
         } else {
             $register_error = "Please fill in all required fields.";
         }
@@ -118,5 +128,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/now-ui-kit.min.js"></script>
 </body>
-</html>
 </html>
