@@ -144,7 +144,8 @@ if ($is_logged_in) {
                 <td><?= $b['guests'] ?></td>
                 <td><?= htmlspecialchars($b['activity']) ?></td>
                 <td>
-                    <a href="edit_my_booking.php?id=<?= $b['booking_id'] ?>" class="btn btn-sm btn-primary" style="background-color:#007bff;border-color:#007bff;">Edit</a>
+                    <!-- Make sure booking_id is passed as a GET parameter -->
+                    <a href="edit_my_booking.php?id=<?= urlencode($b['booking_id']) ?>" class="btn btn-sm btn-primary" style="background-color:#007bff;border-color:#007bff;">Edit</a>
                 </td>
             </tr>
         <?php endwhile; ?>

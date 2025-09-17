@@ -11,7 +11,6 @@ $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyli
 
 // Get user info
 $user_id = $_SESSION['user_id'];
-echo "Logged in user_id: $user_id<br>";
 $user_result = $mysqli->query("SELECT email FROM users WHERE user_id = $user_id");
 $user_email = '';
 if ($user_result && $user_result->num_rows > 0) {
@@ -23,8 +22,12 @@ if ($user_result && $user_result->num_rows > 0) {
 }
 
 // Get booking id to edit
-$id = intval($_GET['id'] ?? 0);
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 echo "Requested booking_id: $id<br>";
+if ($id <= 0) {
+    echo "Error: No valid booking ID provided in the URL.<br>";
+    exit();
+}
 $booking = null;
 if ($id && $user_email) {
     $sql = "SELECT * FROM bookings WHERE booking_id = $id AND LOWER(TRIM(email)) = '{$user_email}'";
