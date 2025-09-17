@@ -1,26 +1,30 @@
 <?php
 session_start();
-$login_error = '';
+$register_error = '';
+$register_success = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mysqli = new mysqli("localhost", "skyline_user", "secure_password", "skyline");
     if ($mysqli->connect_errno) {
-        $login_error = "Database connection failed.";
+        $register_error = "Database connection failed.";
     } else {
+        $first_name = trim($_POST['first_name'] ?? '');
+        $last_name = trim($_POST['last_name'] ?? '');
         $email = trim($_POST['email'] ?? '');
+        $phone = trim($_POST['phone'] ?? '');
         $password = $_POST['password'] ?? '';
-        $stmt = $mysqli->prepare("SELECT user_id, password, first_name FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($user_id, $hash, $first_name);
-        if ($stmt->fetch() && password_verify($password, $hash)) {
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['first_name'] = $first_name;
-            header("Location: index.html");
-            exit();
+        if ($first_name && $last_name && $email && $password) {
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $mysqli->prepare("INSERT INTO users (first_name, last_name, email, phone, password) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $hash);
+            if ($stmt->execute()) {
+                $register_success = "Registration successful! You can now log in.";
+            } else {
+                $register_error = "Registration failed. Email may already be in use.";
+            }
+            $stmt->close();
         } else {
-            $login_error = "Invalid email or password.";
+            $register_error = "Please fill in all required fields.";
         }
-        $stmt->close();
         $mysqli->close();
     }
 }
@@ -29,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
@@ -65,20 +69,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </nav>
 <div class="container mt-5">
-    <h2 class="title text-center mb-4" style="color: #AD91FF;">Login</h2>
-    <?php if ($login_error): ?>
-        <div class="alert alert-danger"><?php echo htmlspecialchars($login_error); ?></div>
+    <h2 class="title text-center mb-4" style="color: #AD91FF;">Register</h2>
+    <?php if ($register_error): ?>
+        <div class="alert alert-danger"><?php echo htmlspecialchars($register_error); ?></div>
     <?php endif; ?>
-    <form method="POST" action="login.php" style="max-width: 400px; margin: 0 auto;">
+    <?php if ($register_success): ?>
+        <div class="alert alert-success"><?php echo htmlspecialchars($register_success); ?></div>
+    <?php endif; ?>
+    <form method="POST" action="register.php" style="max-width: 400px; margin: 0 auto;">
+        <div class="form-group">
+            <label for="first_name" style="color: #fff;">First Name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name" style="color: #fff;">Last Name</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" required>
+        </div>
         <div class="form-group">
             <label for="email" style="color: #fff;">Email</label>
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="form-group">
+            <label for="phone" style="color: #fff;">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone">
+        </div>
+        <div class="form-group">
             <label for="password" style="color: #fff;">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+        <button type="submit" class="btn btn-primary btn-block mt-3">Register</button>
     </form>
 </div>
 <div class="footer mt-5">

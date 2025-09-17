@@ -1,35 +1,11 @@
 <?php
-session_start();
-$login_error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $mysqli = new mysqli("localhost", "skyline_user", "secure_password", "skyline");
-    if ($mysqli->connect_errno) {
-        $login_error = "Database connection failed.";
-    } else {
-        $email = trim($_POST['email'] ?? '');
-        $password = $_POST['password'] ?? '';
-        $stmt = $mysqli->prepare("SELECT user_id, password, first_name FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($user_id, $hash, $first_name);
-        if ($stmt->fetch() && password_verify($password, $hash)) {
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['first_name'] = $first_name;
-            header("Location: index.html");
-            exit();
-        } else {
-            $login_error = "Invalid email or password.";
-        }
-        $stmt->close();
-        $mysqli->close();
-    }
-}
+// Remove all PHP login logic from index.php
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Rotorua Skyline</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
@@ -64,23 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
     </div>
 </nav>
-<div class="container mt-5">
-    <h2 class="title text-center mb-4" style="color: #AD91FF;">Login</h2>
-    <?php if ($login_error): ?>
-        <div class="alert alert-danger"><?php echo htmlspecialchars($login_error); ?></div>
-    <?php endif; ?>
-    <form method="POST" action="login.php" style="max-width: 400px; margin: 0 auto;">
-        <div class="form-group">
-            <label for="email" style="color: #fff;">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password" style="color: #fff;">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
-    </form>
-</div>
+<!-- ...existing homepage content (not the login form)... -->
+<!-- You can copy the homepage HTML from index.html if needed -->
 <div class="footer mt-5">
     <div class="bot-footer">
         <img src="assets/siteLogoWord.png" width="150" alt="Site Logo Word"><br>

@@ -1,37 +1,12 @@
 <?php
-// Example: login.php
-// filepath: login.php
-session_start();
-$login_error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $mysqli = new mysqli("localhost", "skyline_user", "secure_password", "skyline");
-    if ($mysqli->connect_errno) {
-        $login_error = "Database connection failed.";
-    } else {
-        $email = trim($_POST['email'] ?? '');
-        $password = $_POST['password'] ?? '';
-        $stmt = $mysqli->prepare("SELECT user_id, password, first_name FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($user_id, $hash, $first_name);
-        if ($stmt->fetch() && password_verify($password, $hash)) {
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['first_name'] = $first_name;
-            header("Location: index.html");
-            exit();
-        } else {
-            $login_error = "Invalid email or password.";
-        }
-        $stmt->close();
-        $mysqli->close();
-    }
-}
+// Example: activities.php
+// filepath: activities.php
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Activities</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
@@ -58,6 +33,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <li class="nav-item"><a class="nav-link" href="dining.php">Dining</a></li>
             <li class="nav-item"><a class="nav-link" href="locations.php">Locations</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+        </ul>
+        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
+            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
+        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+    </div>
+</nav>
+<div class="container mt-5">
+    <h2 class="title text-center mb-4" style="color: #AD91FF;">Activities</h2>
+    <!-- Add your activities content here -->
+</div>
+<div class="footer mt-5">
+    <div class="bot-footer">
+        <img src="assets/siteLogoWord.png" width="150" alt="Site Logo Word"><br>
+        Copyright © Leighton Simmons - 2025
+    </div><br>
+    <div class="nouridio">support on me <a href="https://ko-fi.com/leighton075" target="_blank">kofi</a></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/now-ui-kit.min.js"></script>
+</body>
+</html>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
         </ul>
         <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"

@@ -45,10 +45,6 @@
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
         </ul>
-        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
-            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
-        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
     </div>
 </nav>
 <button id="returnTopBtn" class="btn btn-secondary" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">

@@ -1,31 +1,31 @@
 <?php
-// Example: login.php
-// filepath: login.php
-session_start();
-$login_error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $mysqli = new mysqli("localhost", "skyline_user", "secure_password", "skyline");
-    if ($mysqli->connect_errno) {
-        $login_error = "Database connection failed.";
-    } else {
-        $email = trim($_POST['email'] ?? '');
-        $password = $_POST['password'] ?? '';
-        $stmt = $mysqli->prepare("SELECT user_id, password, first_name FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($user_id, $hash, $first_name);
-        if ($stmt->fetch() && password_verify($password, $hash)) {
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['first_name'] = $first_name;
-            header("Location: index.html");
-            exit();
-        } else {
-            $login_error = "Invalid email or password.";
-        }
-        $stmt->close();
-        $mysqli->close();
-    }
-}
+// ...existing code for Queenstown page (if any)...
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ...existing code... -->
+    <title>Queenstown</title>
+    <!-- ...existing code... -->
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-transparent">
+    <!-- ...existing navbar code... -->
+</nav>
+<!-- ...replace login form with Queenstown page content... -->
+<div class="container mt-5">
+    <h2 class="title text-center mb-4" style="color: #AD91FF;">Queenstown</h2>
+    <!-- Add your Queenstown content here -->
+</div>
+<div class="footer mt-5">
+    <!-- ...existing footer code... -->
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/now-ui-kit.min.js"></script>
+</body>
+</html>
 ?>
 <!DOCTYPE html>
 <html lang="en">
