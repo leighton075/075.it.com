@@ -25,10 +25,23 @@ if ($id) {
     }
 }
 
-echo "User email: " . $user_email . "<br>";
-echo "Booking email: " . strtolower(trim($booking['email'])) . "<br>";
+// Debug output for troubleshooting
+if (!$booking) {
+    echo "Booking not found. Please check the booking ID.<br>";
+    exit();
+}
+// Dump the booking array for inspection
+echo "<pre>";
+var_dump($booking);
+echo "</pre>";
+if (!isset($booking['email']) || trim($booking['email']) === '') {
+    echo "Booking email is missing or column name is wrong. Please check your database column names and data.<br>";
+    exit();
+}
+echo "User email: '" . $user_email . "'<br>";
+echo "Booking email: '" . strtolower(trim($booking['email'])) . "'<br>";
 // Only allow editing if booking belongs to user (case-insensitive, trimmed)
-if (!$booking || strtolower(trim($booking['email'])) !== $user_email) {
+if (strtolower(trim($booking['email'])) !== $user_email) {
     echo "Access denied.";
     exit();
 }
