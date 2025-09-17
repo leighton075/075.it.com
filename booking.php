@@ -31,6 +31,9 @@
                 <a class="nav-link" href="index.php#features">Attractions</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="index.php#statistics">Statistics</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="booking.php">Book</a>
             </li>
             <li class="nav-item">
@@ -116,9 +119,6 @@
 $('#returnTopBtn').on('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-</script>
-</body>
-</html>
 </script>
 </body>
 </html>
