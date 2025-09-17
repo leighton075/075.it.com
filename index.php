@@ -1,5 +1,4 @@
 <?php
-// Remove all PHP login logic from index.php
 ?>
 <!DOCTYPE html>
 <html lang="en">

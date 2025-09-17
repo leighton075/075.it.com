@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 $register_error = '';
 $register_success = '';
@@ -15,13 +19,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($first_name && $last_name && $email && $password) {
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $mysqli->prepare("INSERT INTO users (first_name, last_name, email, phone, password) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $hash);
-            if ($stmt->execute()) {
-                $register_success = "Registration successful! You can now log in.";
+            if ($stmt) {
+                $stmt->bind_param("sssss", $first_name, $last_name, $email, $phone, $hash);
+                if ($stmt->execute()) {
+                    $register_success = "Registration successful! You can now log in.";
+                } else {
+                    $register_error = "Registration failed. Email may already be in use.";
+                }
+                $stmt->close();
             } else {
-                $register_error = "Registration failed. Email may already be in use.";
+                $register_error = "Database error: " . $mysqli->error;
             }
-            $stmt->close();
         } else {
             $register_error = "Please fill in all required fields.";
         }
@@ -111,5 +119,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="js/now-ui-kit.min.js"></script>
 </body>
 </html>
-</body>
 </html>

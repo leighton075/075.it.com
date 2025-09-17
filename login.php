@@ -1,6 +1,4 @@
 <?php
-// Example: login.php
-// filepath: login.php
 session_start();
 $login_error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($stmt->fetch() && password_verify($password, $hash)) {
             $_SESSION['user_id'] = $user_id;
             $_SESSION['first_name'] = $first_name;
-            header("Location: index.html");
+            header("Location: index.php");
             exit();
         } else {
             $login_error = "Invalid email or password.";
@@ -92,6 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/now-ui-kit.min.js"></script>
+</body>
+</html>
 </body>
 </html>
 </body>
