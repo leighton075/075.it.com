@@ -19,6 +19,25 @@ if ($is_logged_in) {
     $user_bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, phone, date, guests, activity FROM bookings WHERE email = (SELECT email FROM users WHERE user_id = $user_id)");
     $mysqli->close();
 }
+
+$validation_error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $first_name = trim($_POST['first_name'] ?? '');
+    $last_name = trim($_POST['last_name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+
+    if (!preg_match('/^[a-zA-Z]+$/', $first_name)) {
+        $validation_error = 'First name must contain only letters.';
+    } elseif (!preg_match('/^[a-zA-Z]+$/', $last_name)) {
+        $validation_error = 'Last name must contain only letters.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $validation_error = 'Please enter a valid email address.';
+    } elseif (!preg_match('/^[0-9+\-\s]+$/', $phone)) {
+        $validation_error = 'Phone number must contain only numbers, spaces, + or -.';
+    }
+    // ...existing code for booking submission...
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +99,12 @@ if ($is_logged_in) {
     <div class="card shadow-lg" style="background: #1D1E28; border: 4px solid #AD91FF; width: 100vw; padding: 120px 0; border-radius: 0;">
         <div class="card-body d-flex flex-column align-items-center p-0" style="width: 100%;">
             <h2 class="card-title mb-4 text-center" style="color: #AD91FF;">Book Your Skyline Experience</h2>
-            <form method="POST" action="booking_handler.php" style="width: 100%; max-width: 700px;">
+            <?php if ($validation_error): ?>
+                <div class="alert alert-danger" style="max-width: 700px; margin: 0 auto;">
+                    <?= htmlspecialchars($validation_error) ?>
+                </div>
+            <?php endif; ?>
+            <form method="POST" action="booking.php" style="width: 100%; max-width: 700px;">
                 <div class="form-group">
                     <label for="first_name" style="color: #fff;">First Name</label>
                     <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter your first name" required>
