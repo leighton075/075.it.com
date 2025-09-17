@@ -28,7 +28,7 @@
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="activities.php">Attractions</a>
+                <a class="nav-link" href="index.php#features">Attractions</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="events.php">Events</a>

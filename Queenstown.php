@@ -1,10 +1,50 @@
 <?php
+// ...existing code for Queenstown page (if any)...
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ...existing code... -->
+    <title>Queenstown</title>
+    <!-- ...existing code... -->
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-transparent">
+    <!-- ...existing code... -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php#features">Attractions</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+        </ul>
+        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
+            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
+        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+    </div>
+</nav>
+<div class="container mt-5">
+    <h2 class="title text-center mb-4" style="color: #AD91FF;">Queenstown</h2>
+    <!-- Copy Queenstown content from HTML counterpart here -->
+</div>
+<div class="footer mt-5">
+    <!-- ...existing footer code... -->
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/now-ui-kit.min.js"></script>
+</body>
+</html>
+</html>
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Events</title>
+    <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
@@ -26,38 +66,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="index.php#features">Attractions</a></li>
+            <li class="nav-item"><a class="nav-link" href="activities.php">Attractions</a></li>
             <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
-        </ul>
-        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
-            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
-        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
-    </div>
-</nav>
-<div class="container mt-5">
-    <h2 class="title text-center mb-4" style="color: #AD91FF;">Events</h2>
-    <!-- Copy events content from HTML counterpart here -->
-</div>
-<div class="footer mt-5">
-    <div class="bot-footer">
-        <img src="assets/siteLogoWord.png" width="150" alt="Site Logo Word"><br>
-        Copyright © Leighton Simmons - 2025
-    </div><br>
-    <div class="nouridio">support on me <a href="https://ko-fi.com/leighton075" target="_blank">kofi</a></div>
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="js/now-ui-kit.min.js"></script>
-</body>
-</html>
-</body>
-</html>
-</body>
-</html>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
         </ul>
         <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
