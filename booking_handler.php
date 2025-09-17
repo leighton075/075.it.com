@@ -20,20 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($stmt) {
             $stmt->bind_param("sssssis", $first_name, $last_name, $email, $phone, $date, $guests, $activity);
             if ($stmt->execute()) {
-                echo "Booking successful!";
+                echo "<script>alert('Booking successful!'); window.location.href='booking.php';</script>";
             } else {
-                echo "Booking failed. Please try again.";
+                echo "<script>alert('Booking failed. Please try again.'); window.location.href='booking.php';</script>";
             }
             $stmt->close();
         } else {
-            echo "Database error: " . $mysqli->error;
+            echo "<script>alert('Database error: " . addslashes($mysqli->error) . "'); window.location.href='booking.php';</script>";
         }
     } else {
-        echo "Please fill in all required fields.";
+        echo "<script>alert('Please fill in all required fields.'); window.location.href='booking.php';</script>";
     }
     $mysqli->close();
 } else {
-    echo "Invalid request.";
+    echo "<script>alert('Invalid request.'); window.location.href='booking.php';</script>";
 }
-?>
 ?>
