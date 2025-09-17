@@ -2,38 +2,54 @@
 session_start();
 // Only allow access if logged in
 if (!isset($_SESSION['user_id'])) {
+    echo "Session user_id not set.<br>";
     header("Location: login.php");
     exit();
 }
 // Connect to database
 $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
+
 // Get user info
 $user_id = $_SESSION['user_id'];
+echo "Logged in user_id: $user_id<br>";
 $user_result = $mysqli->query("SELECT email FROM users WHERE user_id = $user_id");
 $user_email = '';
 if ($user_result && $user_result->num_rows > 0) {
     $user_email = $user_result->fetch_assoc()['email'];
     $user_email = strtolower(trim($user_email));
-}
-// Get booking id to edit
-$id = intval($_GET['id'] ?? 0);
-$booking = null;
-if ($id) {
-    $booking_result = $mysqli->query("SELECT * FROM bookings WHERE booking_id = $id");
-    if ($booking_result && $booking_result->num_rows > 0) {
-        $booking = $booking_result->fetch_assoc();
-    }
+    echo "User email from DB: '$user_email'<br>";
+} else {
+    echo "No user found for user_id: $user_id<br>";
 }
 
-// Debug output for troubleshooting
+// Get booking id to edit
+$id = intval($_GET['id'] ?? 0);
+echo "Requested booking_id: $id<br>";
+$booking = null;
+if ($id && $user_email) {
+    $sql = "SELECT * FROM bookings WHERE booking_id = $id AND LOWER(TRIM(email)) = '{$user_email}'";
+    echo "Booking SQL: $sql<br>";
+    $booking_result = $mysqli->query($sql);
+    if ($booking_result && $booking_result->num_rows > 0) {
+        $booking = $booking_result->fetch_assoc();
+        echo "Booking found.<br>";
+    } else {
+        echo "No booking found for booking_id: $id and email: '$user_email'<br>";
+    }
+} else {
+    echo "Booking ID or user email missing.<br>";
+}
+
 if (!$booking) {
-    echo "Booking not found. Please check the booking ID.<br>";
+    echo "Booking not found. Please check the booking ID or make sure you are the owner.<br>";
     exit();
 }
+
 // Dump the booking array for inspection
 echo "<pre>";
 var_dump($booking);
 echo "</pre>";
+
 if (!isset($booking['email']) || trim($booking['email']) === '') {
     echo "Booking email is missing or column name is wrong. Please check your database column names and data.<br>";
     exit();
@@ -42,7 +58,7 @@ echo "User email: '" . $user_email . "'<br>";
 echo "Booking email: '" . strtolower(trim($booking['email'])) . "'<br>";
 // Only allow editing if booking belongs to user (case-insensitive, trimmed)
 if (strtolower(trim($booking['email'])) !== $user_email) {
-    echo "Access denied.";
+    echo "Access denied.<br>";
     exit();
 }
 // Handle form submission to update booking
