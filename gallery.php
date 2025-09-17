@@ -12,8 +12,6 @@
       <link rel="stylesheet" href="css/now-ui-kit.css?v=2">
     </noscript>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <title>Rotorua Skyline Gallery</title>
     <style>
         .gallery-img {
             transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s, border-color 0.3s;
@@ -26,9 +24,12 @@
             z-index: 2;
         }
     </style>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <title>Rotorua Skyline Gallery</title>
 </head>
 <body>
-<!-- Use this at the top of every .php file -->
 <nav class="navbar navbar-expand-lg bg-transparent">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +46,10 @@
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
         </ul>
+        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
+            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
+        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
     </div>
 </nav>
 <button id="returnTopBtn" class="btn btn-secondary" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">

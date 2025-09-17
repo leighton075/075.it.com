@@ -5,8 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rotorua Skyline</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" href="css/now-ui-kit.css?v=2" onload="this.rel='stylesheet'">
@@ -16,6 +15,8 @@
     </noscript>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <title>Rotorua Skyline</title>
+    <meta name="description" content="Rotorua Skyline: Attractions, booking, gallery, and more. Experience the Luge, Gondala, Skyswing, and Mountain Bike Park in Rotorua, New Zealand.">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-transparent">
@@ -27,12 +28,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="activities.php">Attractions</a></li>
-            <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
-            <li class="nav-item"><a class="nav-link" href="dining.php">Dining</a></li>
-            <li class="nav-item"><a class="nav-link" href="locations.php">Locations</a></li>
-            <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php#features">Attractions</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php#statistics">Statistics</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
         </ul>
         <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
             style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
@@ -54,13 +53,88 @@
     </div>
 </div>
 <div class="features" id="features">
-    <!-- ...copy features section from index.html... -->
+    <div class="mt-5"></div>
+    <div class="title">Features of the Skyline</div>
+    <div class="subtitle">This August buy one year and enjoy two years of unlimited Gondola rides. Online only. Ends Sunday 31st August.</div>
+    <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-6 mb-4 d-flex">
+            <div class="card w-100">
+                <img src="assets/Skyline%20Night-4_edit.jpg" style="width:100%; height:auto; border-top-left-radius:1rem; border-top-right-radius:1rem;" alt="Luge" fetchpriority="high">
+                <div class="card-body">
+                    <h5 class="card-title">Luge</h5>
+                    <p class="card-text">Fast paced freedom. Multiple tracks, stunning views, and fun for all ages. Race your friends or enjoy a scenic ride—Rotorua's Luge is a must-do adventure for everyone.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 d-flex">
+            <div class="card w-100">
+                <img src="assets/Skyline%20Rotorua%20Gondola%20Sun%20Set%20Photo%201.jpg" style="width:100%; height:auto; border-top-left-radius:1rem; border-top-right-radius:1rem;" alt="Gondala">
+                <div class="card-body">
+                    <h5 class="card-title">Gondala</h5>
+                    <p class="card-text">Ride to the top in our eight-seater cabins and enjoy spectacular views of Lake Rotorua. The Gondala is perfect for families, photographers, and anyone wanting a relaxing journey.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 d-flex">
+            <div class="card w-100">
+                <img src="assets/Skyline%20Rotorua%20Night%20Luge%20(3).jpg" style="width:100%; height:auto; border-top-left-radius:1rem; border-top-right-radius:1rem;" alt="Skyswing">
+                <div class="card-body">
+                    <h5 class="card-title">Skyswing</h5>
+                    <p class="card-text">Rotorua's highest and fastest adrenaline rush with incredible views. Launch high above the ground for a thrilling experience and a heart-pounding challenge.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 d-flex">
+            <div class="card w-100">
+                <img src="assets/Skyline%20Rotorua%20Couple%20(2).jpg" style="width:100%; height:auto; border-top-left-radius:1rem; border-top-right-radius:1rem;" alt="Mountain Bike Park">
+                <div class="card-body">
+                    <h5 class="card-title">Mountain Bike Park</h5>
+                    <p class="card-text">All season Gondala-assisted bike park with trails for every skill level. Enjoy scenic routes, great facilities, and legendary challenges for mountain biking enthusiasts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="statistics" id="statistics">
-    <!-- ...copy statistics section from index.html... -->
+    <div class="cards">
+        <div class="card statistic" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</p>
+                <p style="font-weight: bold !important;font-size: 20px !important;">Total Guests Served</p>
+            </div>
+        </div>
+        <div class="card statistic" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</p>
+                <p style="font-weight: bold !important;font-size: 20px !important;">Current Amount of Guests</p>
+            </div>
+        </div>
+        <div class="card statistic" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</p>
+                <p style="font-weight: bold !important;font-size: 20px !important;">Luge Tracks Open</p> 
+            </div>
+        </div>
+    </div>
 </div>
 <div class="page_end">
-    <!-- ...copy page_end section from index.html... -->
+    <div class="start">
+        <div class="card">
+            <div class="card-body gs-card">
+                <div class="title">Ready book now?</div>
+                <div class="subtitle">Whoever you are, whatever mood you&apos;re in - we have something for you!</div>
+                <br>
+                <a class="btn btn-primary btn-lg" href="booking.php" role="button" id="getStarted">Book Now</a>
+            </div><br>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="bot-footer">
+            <img src="assets/siteLogoWord.png" width="150" alt="Site Logo Word"><br>
+            Copyright © Leighton Simmons - 2025
+        </div><br>
+        <div class="nouridio">support on me <a href="https://ko-fi.com/leighton075" target="_blank">kofi</a></div>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
