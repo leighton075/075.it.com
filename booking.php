@@ -34,10 +34,10 @@
                 <a class="nav-link" href="events.php">Events</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="booking.php">Book</a>
+                <a class="nav-link" href="gallery.php">Gallery</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="gallery.php">Gallery</a>
+                <a class="nav-link" href="booking.php">Book</a>
             </li>
         </ul>
         <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0" style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>

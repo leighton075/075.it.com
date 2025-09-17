@@ -10,7 +10,20 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-transparent">
-    <!-- ...existing navbar code... -->
+    <!-- ...existing code... -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="activities.php">Attractions</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+        </ul>
+        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
+            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
+        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
+            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+    </div>
 </nav>
 <div class="container mt-5">
     <h2 class="title text-center mb-4" style="color: #AD91FF;">Queenstown</h2>
@@ -55,8 +68,6 @@
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="activities.php">Attractions</a></li>
             <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
-            <li class="nav-item"><a class="nav-link" href="dining.php">Dining</a></li>
-            <li class="nav-item"><a class="nav-link" href="locations.php">Locations</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
         </ul>
