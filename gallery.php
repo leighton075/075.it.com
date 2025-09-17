@@ -15,31 +15,30 @@ if ($is_logged_in) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Inline critical CSS -->
-    <style>
-        body { background-color: #1D1E28; color: #fff; font-family: 'Poppins', sans-serif !important; }
-        .navbar { box-shadow: none !important; }
-        .nav-link { font-size: 14px !important; transition: color 0.2s; }
-        .nav-link:hover { color: #AD91FF !important; font-weight: bold !important; border-bottom: 2px solid #AD91FF; }
-        .login-btn { border: 2px solid #AD91FF !important; font-size: 10px !important; }
-        .login-btn:hover { background: #AD91FF !important; }
-        .btn { border-radius: 10px !important; font-size: 16px !important; font-weight: 600 !important; text-transform: uppercase !important; }
-        .btn-primary { background-color: #AD91FF!important }
-        .btn-secondary { background-color: #2C2F33 !important }
-        .footer { text-align: center !important; padding: 30px 30px !important; margin-top: auto !important; color: #ecf2ff; }
-        .bot-footer { color: #a2a8bd !important }
-        .heading { padding: 160px 50px !important; color: #fff !important; }
-        .title { line-height: 90px !important; margin-bottom: -2px !important; font-size: 36px !important }
-        .subtitle { color: rgba(255, 255, 255, 0.85) !important; font-size: 18px !important; font-family: 'Lato', sans-serif; font-weight: 400 !important; letter-spacing: 0.02em !important; }
-    </style>
-    <!-- Load combined/minified CSS file -->
-    <link rel="stylesheet" href="css/all.min.css?v=2">
+    <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
+    <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="css/now-ui-kit.css?v=2" onload="this.rel='stylesheet'">
     <noscript>
-      <link rel="stylesheet" href="css/all.min.css?v=2">
+      <link rel="stylesheet" href="css/main.css?v=2">
+      <link rel="stylesheet" href="css/now-ui-kit.css?v=2">
     </noscript>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <style>
+        .gallery-img {
+            transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s, border-color 0.3s;
+            border: 4px solid transparent;
+        }
+        .gallery-img:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 32px #AD91FF99, 0 2px 8px rgba(0,0,0,0.2);
+            border-color: #AD91FF;
+            z-index: 2;
+        }
+    </style>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <!-- ...existing code... -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <title>Rotorua Skyline Gallery</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-transparent">
