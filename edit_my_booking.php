@@ -24,10 +24,9 @@ if ($id) {
         $booking = $booking_result->fetch_assoc();
     }
 }
-// Debug output for troubleshooting
-// Uncomment the following lines to see the emails being compared
-// echo "User email: " . $user_email . "<br>";
-// echo "Booking email: " . strtolower(trim($booking['email'])) . "<br>";
+
+echo "User email: " . $user_email . "<br>";
+echo "Booking email: " . strtolower(trim($booking['email'])) . "<br>";
 // Only allow editing if booking belongs to user (case-insensitive, trimmed)
 if (!$booking || strtolower(trim($booking['email'])) !== $user_email) {
     echo "Access denied.";
