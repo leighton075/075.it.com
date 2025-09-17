@@ -42,7 +42,7 @@
 </nav>
 <div class="container mt-5">
     <h2 class="title text-center mb-4" style="color: #AD91FF;">Dining</h2>
-    <!-- Add your dining content here -->
+    <!-- Copy dining content from HTML counterpart here -->
 </div>
 <div class="footer mt-5">
     <div class="bot-footer">

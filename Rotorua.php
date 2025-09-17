@@ -43,7 +43,7 @@
 </nav>
 <div class="container mt-5">
     <h2 class="title text-center mb-4" style="color: #AD91FF;">Rotorua</h2>
-    <!-- Add your Rotorua content here -->
+    <!-- Copy Rotorua content from HTML counterpart here -->
 </div>
 <div class="footer mt-5">
     <div class="bot-footer">

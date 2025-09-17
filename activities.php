@@ -43,7 +43,8 @@
 </nav>
 <div class="container mt-5">
     <h2 class="title text-center mb-4" style="color: #AD91FF;">Activities</h2>
-    <!-- Add your activities content here -->
+    <!-- Copy activities content from HTML counterpart here -->
+    <!-- Example: List of activities, images, descriptions -->
 </div>
 <div class="footer mt-5">
     <div class="bot-footer">
@@ -58,7 +59,6 @@
 <script src="js/now-ui-kit.min.js"></script>
 </body>
 </html>
-            <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
         </ul>
         <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
             style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>

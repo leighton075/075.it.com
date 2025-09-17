@@ -40,18 +40,36 @@
             style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
     </div>
 </nav>
-<!-- ...existing homepage content (not the login form)... -->
-<!-- You can copy the homepage HTML from index.html if needed -->
-<div class="footer mt-5">
-    <div class="bot-footer">
-        <img src="assets/siteLogoWord.png" width="150" alt="Site Logo Word"><br>
-        Copyright © Leighton Simmons - 2025
-    </div><br>
-    <div class="nouridio">support on me <a href="https://ko-fi.com/leighton075" target="_blank">kofi</a></div>
+<button id="returnTopBtn" class="btn btn-secondary" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+    <img src="assets/upArrow.svg" width="24" height="24" alt="Return to top">
+</button>
+<div class="heading">
+    <div class="d-flex flex-column align-items-center justify-content-center text-center">
+        <h1 class="display-5 title">Welcome to the Rotorua Skyline</h1>
+        <p class="subtitle">Come and have a go on the Luge Rotorua - good luck stopping at one ride!</p>
+        <div class="d-flex justify-content-center mt-3">
+            <a class="btn btn-primary btn-lg mx-2 book-now-btn" href="booking.php" role="button">Book Now</a>
+            <a class="btn btn-secondary btn-lg mx-2 learn-more-btn" href="#features" role="button">Learn more</a>
+        </div>
+    </div>
+</div>
+<div class="features" id="features">
+    <!-- ...copy features section from index.html... -->
+</div>
+<div class="statistics" id="statistics">
+    <!-- ...copy statistics section from index.html... -->
+</div>
+<div class="page_end">
+    <!-- ...copy page_end section from index.html... -->
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/now-ui-kit.min.js"></script>
+<script>
+$('#returnTopBtn').on('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
 </body>
 </html>

@@ -12,10 +12,9 @@
 <nav class="navbar navbar-expand-lg bg-transparent">
     <!-- ...existing navbar code... -->
 </nav>
-<!-- ...replace login form with Queenstown page content... -->
 <div class="container mt-5">
     <h2 class="title text-center mb-4" style="color: #AD91FF;">Queenstown</h2>
-    <!-- Add your Queenstown content here -->
+    <!-- Copy Queenstown content from HTML counterpart here -->
 </div>
 <div class="footer mt-5">
     <!-- ...existing footer code... -->
@@ -25,6 +24,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/now-ui-kit.min.js"></script>
 </body>
+</html>
 </html>
 ?>
 <!DOCTYPE html>
