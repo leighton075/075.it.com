@@ -12,7 +12,8 @@ $user_id = $_SESSION['user_id'];
 $user_result = $mysqli->query("SELECT email FROM users WHERE user_id = $user_id");
 $user_email = '';
 if ($user_result && $user_result->num_rows > 0) {
-    $user_email = strtolower(trim($user_result->fetch_assoc()['email']));
+    $user_email = $user_result->fetch_assoc()['email'];
+    $user_email = strtolower(trim($user_email));
 }
 // Get booking id to edit
 $id = intval($_GET['id'] ?? 0);
@@ -23,6 +24,10 @@ if ($id) {
         $booking = $booking_result->fetch_assoc();
     }
 }
+// Debug output for troubleshooting
+// Uncomment the following lines to see the emails being compared
+// echo "User email: " . $user_email . "<br>";
+// echo "Booking email: " . strtolower(trim($booking['email'])) . "<br>";
 // Only allow editing if booking belongs to user (case-insensitive, trimmed)
 if (!$booking || strtolower(trim($booking['email'])) !== $user_email) {
     echo "Access denied.";
