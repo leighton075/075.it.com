@@ -19,8 +19,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date = $_POST['date'] ?? '';
     $guests = $_POST['guests'] ?? '';
     $activity = $_POST['activity'] ?? '';
-    // Validate required fields
-    if ($first_name && $last_name && $email && $phone && $date && $guests && $activity) {
+
+    // More thorough validation
+    $valid = true;
+    $error_msg = '';
+
+    if (!preg_match('/^[a-zA-Z]+$/', $first_name)) {
+        $valid = false;
+        $error_msg = 'First name must contain only letters.';
+    } elseif (!preg_match('/^[a-zA-Z]+$/', $last_name)) {
+        $valid = false;
+        $error_msg = 'Last name must contain only letters.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $valid = false;
+        $error_msg = 'Invalid email address.';
+    } elseif (!preg_match('/^[0-9+\-\s]+$/', $phone)) {
+        $valid = false;
+        $error_msg = 'Phone must contain only digits, spaces, + or -.';
+    } elseif (!$date || !$guests || !$activity) {
+        $valid = false;
+        $error_msg = 'Please fill in all required fields.';
+    }
+
+    if ($valid) {
         // Insert booking into database
         $stmt = $mysqli->prepare("INSERT INTO bookings (first_name, last_name, email, phone, date, guests, activity) VALUES (?, ?, ?, ?, ?, ?, ?)");
         if ($stmt) {
@@ -38,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<script>alert('Database error: " . addslashes($mysqli->error) . "'); window.location.href='booking.php';</script>";
         }
     } else {
-        // Missing fields: show alert and redirect
-        echo "<script>alert('Please fill in all required fields.'); window.location.href='booking.php';</script>";
+        // Show validation error
+        echo "<script>alert('$error_msg'); window.location.href='booking.php';</script>";
     }
     $mysqli->close();
 } else {

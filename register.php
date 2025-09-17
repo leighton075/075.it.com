@@ -25,7 +25,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = trim($_POST['email'] ?? '');
         $phone = trim($_POST['phone'] ?? '');
         $password = $_POST['password'] ?? '';
-        if ($first_name && $last_name && $email && $password) {
+
+        // More thorough validation
+        $valid = true;
+        if (!preg_match('/^[a-zA-Z]+$/', $first_name)) {
+            $valid = false;
+            $register_error = "First name must contain only letters.";
+        } elseif (!preg_match('/^[a-zA-Z]+$/', $last_name)) {
+            $valid = false;
+            $register_error = "Last name must contain only letters.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $valid = false;
+            $register_error = "Invalid email address.";
+        } elseif ($phone && !preg_match('/^[0-9+\-\s]+$/', $phone)) {
+            $valid = false;
+            $register_error = "Phone must contain only digits, spaces, + or -.";
+        } elseif (!$first_name || !$last_name || !$email || !$password) {
+            $valid = false;
+            $register_error = "Please fill in all required fields.";
+        }
+
+        if ($valid) {
             // Check if email already exists
             $check_stmt = $mysqli->prepare("SELECT user_id FROM users WHERE email = ?");
             $check_stmt->bind_param("s", $email);
@@ -49,8 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
             $check_stmt->close();
-        } else {
-            $register_error = "Please fill in all required fields.";
         }
         $mysqli->close();
     }
@@ -144,5 +162,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/now-ui-kit.min.js"></script>
 </body>
-</html>
 </html>
