@@ -18,8 +18,19 @@ if (!$is_admin) {
 
 // Fetch users
 $users = $mysqli->query("SELECT user_id, first_name, last_name, email, phone, is_admin FROM users");
-// Fetch bookings
-$bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, phone, date, guests, activity FROM bookings");
+
+// Handle booking search
+$search_sql = "";
+if (isset($_GET['search'])) {
+    $search = $mysqli->real_escape_string($_GET['search']);
+    $search_sql = "WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR email LIKE '%$search%' OR activity LIKE '%$search%'";
+}
+if (isset($_GET['date']) && $_GET['date']) {
+    $date = $mysqli->real_escape_string($_GET['date']);
+    $search_sql .= ($search_sql ? " AND " : "WHERE ") . "date = '$date'";
+}
+// Fetch bookings with search filter
+$bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, phone, date, guests, activity FROM bookings $search_sql");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,6 +109,15 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
         </tbody>
     </table>
     <h3 class="title mb-3" style="color: #AD91FF;">Bookings</h3>
+    <!-- Booking search form -->
+    <form class="form-inline mb-3" method="get" action="admin.php">
+        <input type="text" name="search" class="form-control mr-2" placeholder="Search name, email, activity" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+        <input type="date" name="date" class="form-control mr-2" value="<?= htmlspecialchars($_GET['date'] ?? '') ?>">
+        <button type="submit" class="btn btn-primary">Search</button>
+        <?php if ($_GET): ?>
+            <a href="admin.php" class="btn btn-secondary ml-2">Clear</a>
+        <?php endif; ?>
+    </form>
     <table class="table table-dark table-striped rounded shadow" style="background: #1D1E28; border: 4px solid #AD91FF;">
         <thead>
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Date</th><th>Guests</th><th>Activity</th><th>Actions</th></tr>

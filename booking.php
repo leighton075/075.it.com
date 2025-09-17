@@ -10,6 +10,15 @@ if ($is_logged_in) {
     $is_admin = $result ? ($result->fetch_assoc()['is_admin'] ?? 0) : 0;
     $mysqli->close();
 }
+
+// Fetch current user's bookings if logged in
+$user_bookings = null;
+if ($is_logged_in) {
+    $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
+    $user_id = $_SESSION['user_id'];
+    $user_bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, phone, date, guests, activity FROM bookings WHERE email = (SELECT email FROM users WHERE user_id = $user_id)");
+    $mysqli->close();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,6 +128,32 @@ if ($is_logged_in) {
         </div>
     </div>
 </div>
+<?php if ($is_logged_in && $user_bookings && $user_bookings->num_rows > 0): ?>
+<div class="container my-5">
+    <h3 class="title mb-3" style="color: #AD91FF;">Your Bookings</h3>
+    <table class="table table-dark table-striped rounded shadow" style="background: #1D1E28; border: 4px solid #AD91FF;">
+        <thead>
+            <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Date</th><th>Guests</th><th>Activity</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+        <?php while ($b = $user_bookings->fetch_assoc()): ?>
+            <tr>
+                <td><?= $b['booking_id'] ?></td>
+                <td><?= htmlspecialchars($b['first_name'] . ' ' . $b['last_name']) ?></td>
+                <td><?= htmlspecialchars($b['email']) ?></td>
+                <td><?= htmlspecialchars($b['phone']) ?></td>
+                <td><?= htmlspecialchars($b['date']) ?></td>
+                <td><?= $b['guests'] ?></td>
+                <td><?= htmlspecialchars($b['activity']) ?></td>
+                <td>
+                    <a href="edit_my_booking.php?id=<?= $b['booking_id'] ?>" class="btn btn-sm btn-primary" style="background-color:#007bff;border-color:#007bff;">Edit</a>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+        </tbody>
+    </table>
+</div>
+<?php endif; ?>
 <div class="page_end">
     <div class="footer">
         <div class="bot-footer">
@@ -137,10 +172,4 @@ $('#returnTopBtn').on('click', function() {
 });
 </script>
 </body>
-</html>
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-</script>
-</body>
-</html>
 </html>
