@@ -36,21 +36,11 @@ if ($is_logged_in) {
     <a href="index.php"><img src="assets/siteLogo.png" width="50" height="50" alt="Site Logo"></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php#features">Attractions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php#statistics">Statistics</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="booking.php">Book</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="gallery.php">Gallery</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php#features">Attractions</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php#statistics">Statistics</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
             <?php if ($is_admin): ?>
                 <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
             <?php endif; ?>
@@ -134,6 +124,16 @@ if ($is_logged_in) {
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="js/now-ui-kit.min.js"></script>
+<script>
+$('#returnTopBtn').on('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
+</html>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/now-ui-kit.min.js"></script>
 <script>

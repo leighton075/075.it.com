@@ -46,8 +46,8 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="activities.php">Attractions</a></li>
-            <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php#features">Attractions</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php#statistics">Statistics</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
             <?php if ($is_admin): ?>
