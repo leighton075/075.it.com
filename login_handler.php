@@ -1,15 +1,29 @@
 <?php
 session_start();
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/php_error.log');
+
+function log_message($msg) {
+    error_log(date('[Y-m-d H:i:s] ') . $msg . "\n", 3, __DIR__ . '/php_error.log');
+}
+
 $mysqli = new mysqli("localhost", "skyline_user", "secure_password", "skyline");
 if ($mysqli->connect_errno) {
-    die("Database connection failed: " . $mysqli->connect_error);
+    log_message("Database connection failed: " . $mysqli->connect_error);
+    http_response_code(500);
+    echo "Database connection failed.";
+    exit();
 }
 
 $email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 
 if (!$email || !$password) {
-    die("Missing required fields.");
+    log_message("Missing required fields in registration.");
+    http_response_code(400);
+    echo "Missing required fields.";
+    exit();
 }
 
 $stmt = $mysqli->prepare("SELECT id, password, first_name FROM users WHERE email = ?");
