@@ -25,7 +25,7 @@ body {
     background: transparent !important;
     color: #AD91FF !important;
     font-weight: bold !important;
-    border-bottom: 2px solid #AD91FF; /* Show underline on hover */
+    border-bottom: 2px solid #AD91FF;
 }
 
 .login-btn {
