@@ -36,8 +36,8 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" href="css/now-ui-kit.css?v=2" onload="this.rel='stylesheet'">
@@ -84,6 +84,7 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
 </div>
 <div class="container my-5">
     <h3 class="title mb-3" style="color: #AD91FF;">Users</h3>
+    <div class="table-responsive">
     <table class="table table-dark table-striped rounded shadow" style="background: #1D1E28; border: 4px solid #AD91FF;">
         <thead>
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Admin</th><th>Actions</th></tr>
@@ -108,6 +109,7 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
         <?php endwhile; ?>
         </tbody>
     </table>
+    </div>
     <h3 class="title mb-3" style="color: #AD91FF;">Bookings</h3>
     <!-- Booking search form -->
     <form class="form-inline mb-3" method="get" action="admin.php">
@@ -118,6 +120,7 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
             <a href="admin.php" class="btn btn-secondary ml-2">Clear</a>
         <?php endif; ?>
     </form>
+    <div class="table-responsive">
     <table class="table table-dark table-striped rounded shadow" style="background: #1D1E28; border: 4px solid #AD91FF;">
         <thead>
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Date</th><th>Guests</th><th>Activity</th><th>Actions</th></tr>
@@ -140,6 +143,7 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
         <?php endwhile; ?>
         </tbody>
     </table>
+    </div>
 </div>
 <div class="footer mt-5">
     <div class="bot-footer">

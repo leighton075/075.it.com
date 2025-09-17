@@ -32,8 +32,8 @@ $user = $mysqli->query("SELECT * FROM users WHERE user_id = $id")->fetch_assoc()
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Edit User</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" href="css/now-ui-kit.css?v=2" onload="this.rel='stylesheet'">
@@ -53,7 +53,7 @@ $user = $mysqli->query("SELECT * FROM users WHERE user_id = $id")->fetch_assoc()
 <body>
 <div class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-md-7">
+        <div class="col-md-7 col-12">
             <div class="edit-card p-4">
                 <h2 class="edit-header mb-4">Edit User</h2>
                 <form method="post" action="edit_user.php?id=<?= $user_id ?>">

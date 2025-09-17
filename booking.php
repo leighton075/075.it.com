@@ -96,8 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh; width: 100vw;">
-    <div class="card shadow-lg" style="background: #1D1E28; border: 4px solid #AD91FF; width: 100vw; padding: 120px 0; border-radius: 0;">
-        <div class="card-body d-flex flex-column align-items-center p-0" style="width: 100%;">
+    <div class="card shadow-lg w-100" style="background: #1D1E28; border: 4px solid #AD91FF; padding: 120px 0; border-radius: 0;">
+        <div class="card-body d-flex flex-column align-items-center p-0 w-100">
             <h2 class="card-title mb-4 text-center" style="color: #AD91FF;">Book Your Skyline Experience</h2>
             <?php if ($validation_error): ?>
                 <div class="alert alert-danger" style="max-width: 700px; margin: 0 auto;">
@@ -152,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php if ($is_logged_in && $user_bookings && $user_bookings->num_rows > 0): ?>
 <div class="container my-5">
     <h3 class="title mb-3" style="color: #AD91FF;">Your Bookings</h3>
+    <div class="table-responsive">
     <table class="table table-dark table-striped rounded shadow" style="background: #1D1E28; border: 4px solid #AD91FF;">
         <thead>
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Date</th><th>Guests</th><th>Activity</th><th>Actions</th></tr>
@@ -174,6 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endwhile; ?>
         </tbody>
     </table>
+    </div>
 </div>
 <?php endif; ?>
 <div class="page_end">
@@ -194,7 +196,4 @@ $('#returnTopBtn').on('click', function() {
 });
 </script>
 </body>
-</html>
-</body>
-</html>
 </html>

@@ -76,7 +76,7 @@ if ($is_logged_in) {
     </div>
 </nav>
 <!-- Return to top button, fixed position -->
-<button id="returnTopBtn" class="btn btn-secondary" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+<button id="returnTopBtn" class="btn btn-secondary d-none d-md-flex" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
     <img src="assets/upArrow.svg" width="24" height="24" alt="Return to top">
 </button>
 <!-- Page heading and subtitle -->
@@ -87,22 +87,22 @@ if ($is_logged_in) {
 <!-- Gallery images, each in a responsive column -->
 <div class="container my-5">
     <div class="row">
-        <div class="col-md-6 mb-4 d-flex justify-content-center">
+        <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
             <img src="assets/Skyline%20Night-4_edit.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Night">
         </div>
-        <div class="col-md-6 mb-4 d-flex justify-content-center">
+        <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
             <img src="assets/Skyline%20Rotorua%205%20(1).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Rotorua 5">
         </div>
-        <div class="col-md-6 mb-4 d-flex justify-content-center">
+        <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
             <img src="assets/Skyline%20Rotorua%20Couple%20(2).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Rotorua Couple">
         </div>
-        <div class="col-md-6 mb-4 d-flex justify-content-center">
+        <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
             <img src="assets/Skyline%20Rotorua%20Gondola%20Sun%20Set%20Photo%201.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Gondola Sun Set">
         </div>
-        <div class="col-md-6 mb-4 d-flex justify-content-center">
+        <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
             <img src="assets/Skyline%20Rotorua%20Night%20Luge%20(3).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Night Luge">
         </div>
-        <div class="col-md-6 mb-4 d-flex justify-content-center">
+        <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
             <img src="assets/Skyline%20Rotorua%20Zipline%20.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Zipline">
         </div>
     </div>
