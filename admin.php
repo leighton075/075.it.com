@@ -24,6 +24,7 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" href="css/now-ui-kit.css?v=2" onload="this.rel='stylesheet'">
@@ -48,6 +49,9 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
             <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+            <?php if ($is_admin): ?>
+                <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
+            <?php endif; ?>
         </ul>
         <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
             style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
@@ -55,10 +59,13 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
             style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
     </div>
 </nav>
-<div class="container mt-5">
-    <h2>Admin Dashboard</h2>
-    <h3>Users</h3>
-    <table class="table table-dark table-striped">
+<div class="heading text-center mb-4" style="padding: 80px 50px !important;">
+    <h1 class="display-5 title" style="color: #AD91FF;">Admin Dashboard</h1>
+    <p class="subtitle">Manage users and bookings below.</p>
+</div>
+<div class="container my-5">
+    <h3 class="title mb-3" style="color: #AD91FF;">Users</h3>
+    <table class="table table-dark table-striped rounded shadow" style="background: #1D1E28; border: 4px solid #AD91FF;">
         <thead>
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Admin</th><th>Actions</th></tr>
         </thead>
@@ -72,14 +79,18 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
                 <td><?= $u['is_admin'] ? 'Yes' : 'No' ?></td>
                 <td>
                     <a href="edit_user.php?id=<?= $u['user_id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                    <a href="delete_user.php?id=<?= $u['user_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete user?')">Delete</a>
+                    <?php if ($u['user_id'] != 3): ?>
+                        <a href="delete_user.php?id=<?= $u['user_id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete user?')">Delete</a>
+                    <?php else: ?>
+                        <span class="btn btn-sm btn-secondary disabled" title="Cannot delete root admin">Delete</span>
+                    <?php endif; ?>
                 </td>
             </tr>
         <?php endwhile; ?>
         </tbody>
     </table>
-    <h3>Bookings</h3>
-    <table class="table table-dark table-striped">
+    <h3 class="title mb-3" style="color: #AD91FF;">Bookings</h3>
+    <table class="table table-dark table-striped rounded shadow" style="background: #1D1E28; border: 4px solid #AD91FF;">
         <thead>
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Date</th><th>Guests</th><th>Activity</th><th>Actions</th></tr>
         </thead>

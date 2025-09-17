@@ -8,7 +8,7 @@ $is_admin = $result->fetch_assoc()['is_admin'] ?? 0;
 if (!$is_admin) { echo "Access denied."; exit(); }
 
 $id = intval($_GET['id'] ?? 0);
-if ($id) {
+if ($id && $id != 3) {
     $mysqli->query("DELETE FROM users WHERE user_id = $id");
 }
 header("Location: admin.php");

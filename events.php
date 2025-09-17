@@ -1,4 +1,13 @@
 <?php
+session_start();
+$is_admin = 0;
+if (isset($_SESSION['user_id'])) {
+    $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
+    $user_id = $_SESSION['user_id'];
+    $result = $mysqli->query("SELECT is_admin FROM users WHERE user_id = $user_id");
+    $is_admin = $result ? ($result->fetch_assoc()['is_admin'] ?? 0) : 0;
+    $mysqli->close();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +39,9 @@
             <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+            <?php if ($is_admin): ?>
+                <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
+            <?php endif; ?>
         </ul>
         <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
             style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
@@ -54,18 +66,6 @@
 <script src="js/now-ui-kit.min.js"></script>
 </body>
 </html>
-</body>
-</html>
-</body>
-</html>
-            <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
-        </ul>
-        <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
-            style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
-        <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-            style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
-    </div>
-</nav>
 <div class="container mt-5">
     <h2 class="title text-center mb-4" style="color: #AD91FF;">Login</h2>
     <?php if ($login_error): ?>

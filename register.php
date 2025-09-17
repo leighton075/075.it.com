@@ -4,6 +4,14 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
+$is_admin = 0;
+if (isset($_SESSION['user_id'])) {
+    $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
+    $user_id = $_SESSION['user_id'];
+    $result = $mysqli->query("SELECT is_admin FROM users WHERE user_id = $user_id");
+    $is_admin = $result ? ($result->fetch_assoc()['is_admin'] ?? 0) : 0;
+    $mysqli->close();
+}
 $register_error = '';
 $register_success = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -77,6 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <li class="nav-item"><a class="nav-link" href="events.php">Events</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
+            <?php if ($is_admin): ?>
+                <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
+            <?php endif; ?>
         </ul>
         <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
             style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
