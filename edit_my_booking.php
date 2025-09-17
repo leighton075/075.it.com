@@ -10,11 +10,19 @@ $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyli
 // Get user info
 $user_id = $_SESSION['user_id'];
 $user_result = $mysqli->query("SELECT email FROM users WHERE user_id = $user_id");
-$user_email = $user_result ? strtolower(trim($user_result->fetch_assoc()['email'])) : '';
+$user_email = '';
+if ($user_result && $user_result->num_rows > 0) {
+    $user_email = strtolower(trim($user_result->fetch_assoc()['email']));
+}
 // Get booking id to edit
 $id = intval($_GET['id'] ?? 0);
-// Fetch booking data for editing
-$booking = $mysqli->query("SELECT * FROM bookings WHERE booking_id = $id")->fetch_assoc();
+$booking = null;
+if ($id) {
+    $booking_result = $mysqli->query("SELECT * FROM bookings WHERE booking_id = $id");
+    if ($booking_result && $booking_result->num_rows > 0) {
+        $booking = $booking_result->fetch_assoc();
+    }
+}
 // Only allow editing if booking belongs to user (case-insensitive, trimmed)
 if (!$booking || strtolower(trim($booking['email'])) !== $user_email) {
     echo "Access denied.";
