@@ -1,4 +1,5 @@
 <?php
+// Session and admin check for navbar/buttons
 session_start();
 $is_admin = 0;
 $is_logged_in = isset($_SESSION['user_id']);
@@ -15,6 +16,7 @@ if ($is_logged_in) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap and main stylesheets -->
     <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
     <link rel="preload" as="style" href="css/main.css?v=2" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" href="css/now-ui-kit.css?v=2" onload="this.rel='stylesheet'">
@@ -22,7 +24,9 @@ if ($is_logged_in) {
       <link rel="stylesheet" href="css/main.css?v=2">
       <link rel="stylesheet" href="css/now-ui-kit.css?v=2">
     </noscript>
+    <!-- Google Fonts for typography -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Gallery hover effect styles -->
     <style>
         .gallery-img {
             transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s, border-color 0.3s;
@@ -36,46 +40,51 @@ if ($is_logged_in) {
         }
     </style>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <!-- Additional fonts for headings/subtitles -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800,900&display=swap" rel="stylesheet">
     <title>Rotorua Skyline Gallery</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-transparent">
+    <!-- Navbar: order and admin panel logic -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <img src="assets/menuIcon.svg" width="20" height="20" style="max-width: none !important;" alt="Menu Icon">
+        <img src="assets/menuIcon.svg" width="20" height="20" alt="Menu Icon">
     </button>
     <a href="index.php"><img src="assets/siteLogo.png" width="50" height="50" alt="Site Logo"></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
         <ul class="navbar-nav mr-auto">
+            <!-- Main navigation order -->
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="index.php#features">Attractions</a></li>
             <li class="nav-item"><a class="nav-link" href="index.php#statistics">Statistics</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
             <?php if ($is_admin): ?>
+                <!-- Only show for admins -->
                 <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
             <?php endif; ?>
         </ul>
+        <!-- Show logout if logged in, else login/register -->
         <?php if ($is_logged_in): ?>
-            <a href="logout.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-                style="font-size: 10px !important;font-family: poppins !important;">LOGOUT</a>
+            <a href="logout.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2">LOGOUT</a>
         <?php else: ?>
-            <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
-                style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
-            <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-                style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+            <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0">LOGIN</a>
+            <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2">REGISTER</a>
         <?php endif; ?>
     </div>
 </nav>
+<!-- Return to top button, fixed position -->
 <button id="returnTopBtn" class="btn btn-secondary" style="position: fixed; bottom: 32px; right: 32px; z-index: 999; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
     <img src="assets/upArrow.svg" width="24" height="24" alt="Return to top">
 </button>
+<!-- Page heading and subtitle -->
 <div class="heading text-center mt-5 mb-4">
     <h1 class="display-5 title">Rotorua Skyline Gallery</h1>
     <p class="subtitle">A selection of photos from our attractions and events.</p>
 </div>
+<!-- Gallery images, each in a responsive column -->
 <div class="container my-5">
     <div class="row">
         <div class="col-md-6 mb-4 d-flex justify-content-center">
@@ -116,11 +125,13 @@ if ($is_logged_in) {
         </div><br>
     </div>
 </div>
+<!-- JS for UI and return to top button -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="js/now-ui-kit.min.js"></script>
 <script>
+// Smooth scroll to top when button is clicked
 $('#returnTopBtn').on('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });

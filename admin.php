@@ -1,12 +1,13 @@
 <?php
 session_start();
+// Only allow access if logged in and admin
 $is_logged_in = isset($_SESSION['user_id']);
 $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
-// Check if user is admin
+// Check admin status for access and navbar
 $user_id = $_SESSION['user_id'];
 $result = $mysqli->query("SELECT is_admin FROM users WHERE user_id = $user_id");
 $is_admin = $result->fetch_assoc()['is_admin'] ?? 0;
@@ -38,30 +39,31 @@ $bookings = $mysqli->query("SELECT booking_id, first_name, last_name, email, pho
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-transparent">
+    <!-- Navbar: order and admin panel logic -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <img src="assets/menuIcon.svg" width="20" height="20" style="max-width: none !important;" alt="Menu Icon">
+        <img src="assets/menuIcon.svg" width="20" height="20" alt="Menu Icon">
     </button>
     <a href="index.php"><img src="assets/siteLogo.png" width="50" height="50" alt="Site Logo"></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
         <ul class="navbar-nav mr-auto">
+            <!-- Main navigation order -->
             <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="index.php#features">Attractions</a></li>
             <li class="nav-item"><a class="nav-link" href="index.php#statistics">Statistics</a></li>
             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="booking.php">Book</a></li>
             <?php if ($is_admin): ?>
+                <!-- Only show for admins -->
                 <li class="nav-item"><a class="nav-link" href="admin.php" style="color: #AD91FF; font-weight: bold;">Admin Panel</a></li>
             <?php endif; ?>
         </ul>
+        <!-- Show logout if logged in, else login/register -->
         <?php if ($is_logged_in): ?>
-            <a href="logout.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-                style="font-size: 10px !important;font-family: poppins !important;">LOGOUT</a>
+            <a href="logout.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2">LOGOUT</a>
         <?php else: ?>
-            <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0"
-                style="font-size: 10px !important;font-family: poppins !important;">LOGIN</a>
-            <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2"
-                style="font-size: 10px !important;font-family: poppins !important;">REGISTER</a>
+            <a href="login.php" class="btn login-btn btn-outline-accent my-2 my-sm-0">LOGIN</a>
+            <a href="register.php" class="btn login-btn btn-outline-accent my-2 my-sm-0 ml-2">REGISTER</a>
         <?php endif; ?>
     </div>
 </nav>
