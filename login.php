@@ -2,7 +2,7 @@
 session_start();
 $login_error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $mysqli = new mysqli("localhost", "skyline_user", "secure_password", "skyline");
+    $mysqli = new mysqli("100.114.13.123", "skyline_user", "secure_password", "skyline");
     if ($mysqli->connect_errno) {
         $login_error = "Database connection failed.";
     } else {
