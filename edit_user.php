@@ -51,7 +51,7 @@ $user = $mysqli->query("SELECT * FROM users WHERE user_id = $id")->fetch_assoc()
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <style>
         .edit-card { background: #1D1E28; border: 4px solid #AD91FF; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
-        .edit-header { color: #AD91FF; font-weight: bold; }
+        .edit-header { color: #e5d8ff; font-weight: bold; font-size: 2.2rem; letter-spacing: 0.02em; }
         .btn-accent { background-color: #AD91FF; border-color: #AD91FF; color: #fff; }
         .btn-accent:hover { background-color: #8a6cff; border-color: #8a6cff; }
     </style>
