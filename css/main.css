@@ -198,3 +198,12 @@ color: rgba(255, 255, 255, 0.46) !important
     color: #a2a8bd !important
 }
 
+.book-now-btn {
+    border: 1.5px solid #2c2f33 !important;
+    box-shadow: 0 2px 8px rgba(173,145,255,0.12);
+}
+
+.learn-more-btn {
+    border: 1.5px solid #ad91ff !important;
+    box-shadow: 0 2px 8px rgba(173,145,255,0.12);
+}
