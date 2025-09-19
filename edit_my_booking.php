@@ -16,14 +16,12 @@ $user_email = '';
 if ($user_result && $user_result->num_rows > 0) {
     $user_email = $user_result->fetch_assoc()['email'];
     $user_email = strtolower(trim($user_email));
-    echo "User email from DB: '$user_email'<br>";
 } else {
-    echo "No user found for user_id: $user_id<br>";
+    // No user found
 }
 
 // Get booking id to edit
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-echo "Requested booking_id: $id<br>";
 if ($id <= 0) {
     echo "Error: No valid booking ID provided in the URL.<br>";
     exit();
@@ -31,13 +29,9 @@ if ($id <= 0) {
 $booking = null;
 if ($id && $user_email) {
     $sql = "SELECT * FROM bookings WHERE booking_id = $id AND LOWER(TRIM(email)) = '{$user_email}'";
-    echo "Booking SQL: $sql<br>";
     $booking_result = $mysqli->query($sql);
     if ($booking_result && $booking_result->num_rows > 0) {
         $booking = $booking_result->fetch_assoc();
-        echo "Booking found.<br>";
-    } else {
-        echo "No booking found for booking_id: $id and email: '$user_email'<br>";
     }
 } else {
     echo "Booking ID or user email missing.<br>";
@@ -48,17 +42,10 @@ if (!$booking) {
     exit();
 }
 
-// Dump the booking array for inspection
-echo "<pre>";
-var_dump($booking);
-echo "</pre>";
-
 if (!isset($booking['email']) || trim($booking['email']) === '') {
     echo "Booking email is missing or column name is wrong. Please check your database column names and data.<br>";
     exit();
 }
-echo "User email: '" . $user_email . "'<br>";
-echo "Booking email: '" . strtolower(trim($booking['email'])) . "'<br>";
 // Only allow editing if booking belongs to user (case-insensitive, trimmed)
 if (strtolower(trim($booking['email'])) !== $user_email) {
     echo "Access denied.<br>";
