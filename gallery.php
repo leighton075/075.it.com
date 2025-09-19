@@ -94,22 +94,22 @@ if ($is_logged_in) {
 <div class="container my-5">
     <div class="row">
         <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
-            <img src="assets/Skyline%20Night-4_edit.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Night">
+            <img src="assets/Gondala1.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Night">
         </div>
         <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
-            <img src="assets/Skyline%20Rotorua%205%20(1).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Rotorua 5">
+            <img src="assets/Gondala2.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Rotorua 5">
         </div>
         <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
-            <img src="assets/Skyline%20Rotorua%20Couple%20(2).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Rotorua Couple">
+            <img src="assets/Luge1.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Skyline Rotorua Couple">
         </div>
         <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
-            <img src="assets/Skyline%20Rotorua%20Gondola%20Sun%20Set%20Photo%201.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Gondola Sun Set">
+            <img src="assets/Gondala3.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Gondola Sun Set">
         </div>
         <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
-            <img src="assets/Skyline%20Rotorua%20Night%20Luge%20(3).jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Night Luge">
+            <img src="assets/Luge2.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Night Luge">
         </div>
         <div class="col-12 col-sm-6 mb-4 d-flex justify-content-center">
-            <img src="assets/Skyline%20Rotorua%20Zipline%20.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Zipline">
+            <img src="assets/Zipline1.jpg" class="img-fluid rounded shadow gallery-img" style="max-width: 90%; height: auto;" alt="Zipline">
         </div>
     </div>
 </div>
